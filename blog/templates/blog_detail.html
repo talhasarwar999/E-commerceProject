@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  Blog | {{object.title}}
+{% endblock title %}
+{% block content %}
+
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'assets/css/blog.css' %}" />
+{% endblock css %}
+    <!-------------******************---------- Blog Section END -------------******************---------->
+
+
+    <div class="container blog-post">
+      <div class="row">
+  
+        <!------ SIngle Post Image Start ----->
+  
+        <div class="col-12 post-img">
+          <img src="{{object.thumbnail.url}}" />
+        </div>
+  
+        <!------ SIngle Post Image End ----->
+  
+        <!------ SIngle Post Decription START ----->
+  
+        <div class="col-12 post-description">
+          <h2>{{object.title}}</h2>
+          <div class="publisher">
+            <i class="far fa-user"></i>
+            <p class="user-name">{{object.user.fullname}}</p>
+            <i class="far fa-clock"></i>
+            <p> {{object.created_at|date:"M d, Y"}}</p>
+          </div>
+          <div class="post_details">
+            {{object.description|safe}}
+          </div>
+      </div>
+    </div>
+  </div>
+  
+{% endblock content %}

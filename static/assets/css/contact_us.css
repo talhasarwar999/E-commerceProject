@@ -1,0 +1,97 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a,
+a:hover {
+    color: #212529;
+}
+
+.scroll {
+    height: 100%;
+    overflow: hidden;
+}
+
+/********************************************** Contact Us Page START **********************************************/
+.container.contact-us {
+    padding: 45px 0px 35px 0px;
+}
+.contact-title{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+.contact-title h3 {
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: grey;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+.contact-title p {
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/********************************************** Map and Form Section START **********************************************/
+.bg-white-2 {
+    background-color: #ebebeb;
+}
+.subscribe-form {
+    padding: 30px 150px;
+}
+.subscribe-form-top {
+    letter-spacing: 1px;
+    padding: 20px 20px !important;
+}
+.form_title{
+    font-size: 20px;
+}
+.form_text{
+    font-size: 12px;
+    font-weight: 600;
+    text-align: end;
+}
+div#email-error, div#phone-error {
+    float: right;
+    font-size: 13px;
+    color: red;
+    margin-top: -15px;
+}
+.subscribe-form-bottom {
+    background-color: #0707074f !important;
+    padding: 20px;
+}
+form#p-form input {
+    padding: 6px 15px;
+    margin-bottom: 14px;
+}
+.form_input:focus-visible {
+    outline: -webkit-focus-ring-color auto 0px !important;
+    border-color: none !important;
+}
+.form_input {
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+    border: none !important;
+}
+input.bg-dark.text-white.w-100.rounded.form_subscribe_btn {
+    padding: 9px 15px !important;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: none;
+    background-color: black !important;
+    margin-bottom: 0px !important;
+}
+.mapframe {
+    height: 600px;
+    width: 100%;
+    filter: saturate(0);
+}
+/********************************************** Map and Form Section END **********************************************/
+
+/********************************************** Contact Us Page END **********************************************/

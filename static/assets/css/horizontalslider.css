@@ -1,0 +1,53 @@
+/**************** swiper Carosousel start *****************/
+
+
+.horizontal-slider {
+    /* max-width: 650px; */
+    width: 70%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.swiper-slide img {
+    display: block;
+    /* width: 100%; */
+    width: 99%;
+    height: auto;
+    object-fit: cover;
+    border: 1px solid black;
+}
+
+.swiper-thumbnail {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+}
+
+.swiper-thumbnail .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+.swiper-thumbnail .swiper-slide-thumb-active {
+    opacity: 1;
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+    left: 10px;
+    top: 220px;
+    right: auto;
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+    right: 10px;
+    top: 220px;
+    left: auto;
+}
+
+
+
+/**************** Swiper Carosousel end *****************/

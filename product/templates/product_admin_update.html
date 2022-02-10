@@ -1,0 +1,992 @@
+{% load static %}
+<html>
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Attributes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+  <!--************ Font Awosome Link End ****************-->
+  {% block css %}
+  <link rel="stylesheet" href="{% static 'assets/css/product_admin.css' %}" />
+
+  {% endblock css %}
+
+  <style>
+    .box {
+      color: #fff;
+      padding: 20px 0px;
+      display: none;
+      margin-top: 20px;
+    }
+
+    input,
+    .modal,
+    select {
+      color: black;
+      width: 100%;
+      padding: 10px 10px;
+      font-size: 16px;
+      border: 1px solid lightgrey;
+      border-radius: 0px !important;
+    }
+
+    .row .alert {
+      margin-top: 25px;
+    }
+
+    th,
+    td {
+      border-top: none !important;
+    }
+
+    table i {
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    #user-0 {
+      display: none;
+    }
+
+    h3 {
+      border: 1px solid lightgrey;
+      padding: 5px;
+      font-weight: bolder;
+      letter-spacing: .1em;
+      color: #000;
+      text-align: justify;
+      font-size: 20px;
+    }
+
+    .modal-content {
+      border-radius: 0;
+    }
+
+    .modal-header,
+    .modal-footer {
+      border: 1px solid lightgrey;
+      color: #000;
+      border: 0;
+    }
+
+    .modal-body {
+      border: 1px solid lightgrey;
+      color: #000;
+    }
+
+    .modal-body-2 {
+      position: relative;
+      flex: 1 1 auto;
+      padding: 1rem;
+      border: 1px solid lightgrey;
+      color: #000;
+    }
+
+    .modal-footer-2 {
+      display: flex;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: flex-end;
+      padding: .75rem;
+      border-bottom-right-radius: calc(.3rem - 1px);
+      border-bottom-left-radius: calc(.3rem - 1px);
+      border: 1px solid lightgrey;
+      color: #000;
+    }
+
+    .close,
+    .close:hover {
+      color: white;
+      background: black;
+    }
+
+    .btn {
+      font-weight: bolder;
+      letter-spacing: .2em;
+    }
+
+    img.attr_img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border: 1px solid black;
+    }
+
+    #attr_name_btn {
+      /* margin-top: 8px; */
+      font-size: 14px;
+      border-radius: 0px;
+      background: black;
+      border-color: black;
+    }
+
+    #attr_name_btn:hover {
+      background: rgb(255, 255, 255);
+      color: black;
+    }
+
+    #reset_btn {
+      border: 1px solid black;
+      width: 55px;
+      border-radius: 5px;
+      background: black;
+      color: #fff;
+      font-size: 14px;
+      padding: 2px 10px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    button.btn.btn-success.form-control,
+    button.btn.btn-danger.form-control {
+      font-size: 14px;
+      width: 100px;
+      letter-spacing: 0.7px;
+    }
+
+    .multipleSelect2 {
+      width: 600px;
+    }
+  </style>
+
+</head>
+
+<body class="">
+
+
+  <!-----******************----- Home Page Header END -----******************----->
+
+  <!-----******************----- Contact Us Page Section START -----******************----->
+
+
+
+  <!-----******************----- Contact Us Form Section START -----******************----->
+  <div class="container">
+    <div class="row">
+      <div class="col-2 hidden-lg"></div>
+      <div class="col-lg-8 msg-box">
+        <h3 style="margin: 50px 0px;">Select a category for your inquiry.</h3>
+        <p></p>
+        <!-- Nav Pills -->
+        <ul class="nav-tabs nav nav-justified contact-form-tabs">
+          <li class="nav-item">
+            <a href="#press" class="nav-link active" data-bs-toggle="tab">Form1</a>
+          </li>
+          <li class="nav-item" id="form2">
+            <a href="#acadmic_r" class="nav-link" data-bs-toggle="tab">Form2</a>
+          </li>
+          <li class="nav-item" id="form3">
+            <a href="#career" class="nav-link" data-bs-toggle="tab">Form3</a>
+          </li>
+        </ul>
+        <span id="product-id">
+          <input type='hidden' id='product-id-value' value='{{product.id}}'>
+        </span>
+
+        <div class="tab-content container">
+          <!-----******************----- Press Form Section START -----******************----->
+          <div class="tab-pane active" id="press">
+
+            <form action="" onsubmit="return ProductMainForm(event);" class="press-form" id="product-main-form"
+              method="POST" enctype="multipart/form-data">
+
+              {% csrf_token %}
+
+              <!-----******************----- Conatct Info Section START -----******************----->
+              <div class="contact-info">
+                <h5>Your Contact Information</h5>
+                <p>Please let us know who you are, and how we can get back in touch.</p>
+                <label>Title</label>
+                <input type="text" placeholder="Enter Title" value="{{product.title}}" name="title" required />
+                <label>Code</label>
+                <input type="text" placeholder="Enter Code" name="code" value="{{product.code}}" required />
+                <label>Sub Title</label>
+                <input type="text" placeholder="Enter Sub Title" name="sub_title" required
+                  value="{{product.sub_title}}" />
+                <label>Sub Price</label>
+                <input type="text" placeholder="Enter Price" name="price" required value="{{product.price}}" />
+                <label>Sold Quantity</label>
+                <input type="number" placeholder="Enter Sold Quantity" name="sold_times" min="0" required
+                  value="{{product.sold_times}}" />
+                <label>Thumbnail</label>
+                <div class="custom-file">
+                  <input type="file" class=" form-control custom-file-input" id="inputGroupFile01"
+                    aria-describedby="inputGroupFileAddon01">
+                </div>
+
+                <label>Description</label>
+                <div class="form-floating mt-2">
+                  <textarea class="form-control" id="floatingTextarea">
+                      {{product.description}}
+                  </textarea>
+                  <label for="floatingTextarea">Product Description</label>
+                </div>
+
+                <label>Grand Category</label>
+                <select class="mt-2" name="grand_category" id="grand">
+                  <option>Choose Category</option>
+                  {% for g in  g_c %}
+                  <option value="{{g.name}}">{{g.name}}</option>
+                  {% endfor %}
+                </select>
+                <!-- <input type="checkbox" name="is_active" id="">
+                <input type="checkbox" name="is_featured" id="">
+                <input type="checkbox" name="is_bestSeller" id=""> -->
+
+              </div>
+              <!-----******************----- Conatct Info Section END -----******************----->
+
+
+              <!-----******************----- Detail Message Section START -----******************----->
+              <div class="field-btns">
+                <!-- <input type="submit" value="submit"> -->
+                <button class="submit submit_form" id="p_submit">Submit</button>
+              </div>
+              <!-----******************----- Detail Message Section END -----******************----->
+
+            </form>
+          </div>
+          <!-----******************----- Press Form Section END -----******************----->
+
+          <!-----******************----- Acadmic Section START -----******************----->
+          <div class="tab-pane" id="acadmic_r">
+            {% for gc in g_c %}
+            <div class="container box {{gc.name}}">
+              {% for attr in gc.get_attributes  %}
+              <div class="row">
+                <div class="col-md-4">
+                  <h3>{{attr.name}}</h3>
+                </div>
+                <div class="col-md-8">
+
+                  <form id="addUser-{{attr.id}}" class='addUser' action="">
+                    <input type="hidden" name="attribute" value="{{attr.id}}">
+                    <div class="form-group d-flex" style="justify-content: space-between;">
+                      <input class="form-control" type="text" name="name" placeholder="Name"
+                        style="width: 70%;height: 36px;">
+                      <button class="btn btn-primary form-control" id="attr_name_btn" type="submit"
+                        style="width: 25%;">Add</button>
+                    </div>
+                  </form>
+
+                  <h3>Sub Attribute</h3>
+                  <table id="userTable-{{attr.id}}" class="table sub-attribute-list" product-id="{{product.id}}"
+                    attr-id="{{attr.id}}">
+                    <tr>
+                      <th colspan="3">Name</th>
+                    </tr>
+
+                    {% for sub_attr in sa_attributes  %}
+                    {% if sub_attr.product.id == product.id and sub_attr.attribute == attr %}
+                    <tr id="user-{{forloop.counter}}" sub-attribute-id={{sub_attr.id}} >
+                      <td class="userData" name="name">{{sub_attr.name}}</td>
+                      <td align="right">
+                        <i class="far fa-edit" onClick="editUser({{forloop.counter}},{{sub_attr.id}})"
+                          attribute-id={{sub_attr.id}} data-bs-toggle="modal" data-bs-target="#myUpdateModal"></i>
+                      </td>
+                      <td align="right">
+                        <!-- <i class="far fa-trash-alt" onClick="deleteUser({{user.sub_attr}},{{sub_attr}})"></i> -->
+                        <i class="far fa-trash-alt" onClick="deleteUser({{forloop.counter}},{{sub_attr.id}})"></i>
+                      </td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                  </table>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+            {% endfor %}
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="myUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Update Attribute</h4>
+                  </div>
+                  <form id="updateUser" action="" method='POST'>
+                    <div class="modal-body">
+                      <label for="name">Name</label>
+                      <input class="form-control" id='userName' type="text" name="name" />
+                      <input class="form-control" id='subAttrId' hidden type="text" name="id" />
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" type="submit" class="btn btn-primary" onclick="editAttributeOnBackend()">Save changes</button>
+                      <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-----******************----- Acadmic Section END -----******************----->
+
+          <!-----******************----- Career Section START -----******************----->
+          <div class="tab-pane" id="career">
+            <div class="form_append">
+              {% for image in slider_images %}
+              <div class="form1" id="{{image.id}}"
+                style="border: 1px solid lightgrey;border-top: 4px solid #0ea20e; margin-bottom: 30px;">
+                <form action="" class="product-slider-image" method="POST" enctype="multipart/form-data">
+                  <div class="add_new_form">
+                    <h6 style="text-align: left;
+                border: 1px solid lightgrey;
+                padding: 8px;
+                font-size: 13px;">
+                      New Product Slider Image
+                    </h6>
+                  </div>
+                  <div class="slider_img" style="width: 70%; padding: 15px;">
+                    <div class="block" style="display: flex; align-items: center; margin: 20px 0px;">
+                      <label for="" style="font-size: 16px; font-weight: 700; width: 40%; text-align: justify;">Choose
+                        File <span style="color: red;">*</span></label>
+                      <input type="file" name="image" id="p_file1" class="p_file" style="width: 50%;"
+                        onchange="updateImage(this)">
+                    </div>
+                    <div class="block" style="display: flex; align-items: center; margin: 20px 0px;">
+                      <label for=""
+                        style="font-size: 16px; font-weight: 700; width: 40%; text-align: justify;">Attribute
+                        <span style="color: red;">*</span></label>
+                      <select class="slider-main-attribute" name="atttibute" style="width: 50%;">
+                        {% for attribute in  product.grand_category.get_attributes %}
+                        <option {% if attribute.id == image.attribute.id %} selected {% endif %}
+                          value="{{attribute.id}}">{{attribute.name}}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <div class="block" style="display: flex; align-items: center; margin: 20px 0px;">
+                      <label for="" style="font-size: 16px; font-weight: 700; width: 40%; text-align: justify;">Sub
+                        Attribute <span style="color: red;">*</span></label>
+                      <select class="slider-sub-attribute" style="width: 50%;" name="sub_attribute">
+                        {% for sub_attribute in  sa_attributes %}
+                        {% if sub_attribute.product.id == product.id %}
+                        <option {% if sub_attribute.id == image.sub_attribute.id %} selected {% endif %}
+                          value="{{sub_attribute.id}}">
+                          {{sub_attribute.name}}
+                        </option>
+                        {% endif %}
+
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <div class="block" style="display: flex; align-items: center; margin: 20px 0px;">
+                      <label for="" style="font-size: 16px; font-weight: 700; width: 40%; text-align: justify;">Related
+                        Sub Attribute <span style="color: red;">*</span></label>
+                      <select class="slider-related-attribute" style="width: 50%;" name="related_sub_attribute">
+                        {% for sub_attribute in  sa_attributes %}
+                        {% if sub_attribute.product.id == product.id %}
+                        <option {% if sub_attribute.id == image.related_sub_attribute.id %} selected {% endif %}
+                          value="{{sub_attribute.id}}">
+                          {{sub_attribute.name}}
+                        </option>
+                        {% endif %}
+                        {% endfor %}
+                      </select>
+                    </div>
+
+                    <!-- Slider Image Start -->
+                    <div>
+                      <img class="attr_img" src="{{image.image.url}}" />
+                    </div>
+                    <!-- Slider Image End -->
+                    <!-- onClick="deleteImageSlider({{image.id}})" -->
+                    <div class="block"
+                      style="display: flex;align-items: end;margin: 20px 0px 10px 0px;justify-content: flex-end;width: 140%;">
+                      <button type="button" id="{{image.id}}" class="btn btn-danger btn_remove delete">Delete</button>
+                      <!-- <button type="button" name="remove" value="{{image.id}}" class="btn btn-danger btn_remove delete">Delete</button> -->
+                      <button type="submit" class="btn btn-success">Save</button>
+                      <h6>{{image.id}}</h6>
+                    </div>
+                  </div>
+                </form>
+              </div>
+                
+              {% endfor %}
+
+            </div>
+            <div class="add_new_img" id="add_new_form" style="width: 35%;
+            margin: 10px 0px;
+            cursor: pointer;">
+              <h6 style="text-align: left;
+                border: 1px solid lightgrey;
+                padding: 8px;
+                font-size: 13px; display: flex; align-items: center">
+                <i class="fas fa-plus" style="color: #0ea20e; margin-right: 10px;"></i>
+                Add New Product Slider Image
+              </h6>
+            </div>
+            <button class="btn btn-primary form-control" id="attr_name_btn" type="submit">SUBMIT</button>
+            </form>
+          </div>
+          <!-----******************----- Career Section END -----******************----->
+        </div>
+      </div>
+      <div class="col-2 hidden-lg"></div>
+    </div>
+  </div>
+
+  <!-----******************----- Contact Us Page Section END -----******************----->
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+  <!-- ///////// font awesome ///////// -->
+  <script src="https://kit.fontawesome.com/23b1f56e60.js"></script>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <!-- Server Configuration/Integration -->
+  <script>
+    // Backend APi's integration
+    $.ajaxSetup({
+      headers: {
+        "X-CSRFToken": '{{csrf_token}}'
+      }
+    });
+
+    // Get All Users
+    function getUsers() {
+      var users = []
+      $.ajax({
+        async: false,
+        url: `/productUsersGET/{{product.id}}/`,
+        dataType: 'json',
+        type: 'GET',
+        data: {},
+        success: function (data) {
+          users = data['data']
+        },
+        error: function (data) {
+          console.log(data)
+        }
+      });
+      return users
+    }
+  </script>
+
+  <!-- Tab Active/Not Active handling -->
+  <script>
+    const currentLocation = location.href;
+    const menuItem = document.querySelectorAll('.nav-link');
+    const menuLength = menuItem.length
+    for (let i = 0; i < menuLength; i++) {
+      if (menuItem[i].href === currentLocation) {
+        menuItem[i].className = ("nav-link active")
+      }
+    }
+  </script>
+
+  <!-- Handle second form according to form 1 grand category -->
+  <script>
+    $(document).ready(function () {
+      $("select#grand").change(function () {
+        $(this).find("option:selected").each(function () {
+          var optionValue = $(this).attr("value");
+          if (optionValue) {
+            $(".box").not("." + optionValue).hide();
+            $("." + optionValue).show();
+          } else {
+            $(".box").hide();
+          }
+        });
+      }).change();
+    });
+  </script>
+
+  <!-- For first form -->
+  <script>
+    // Product Creation Form
+    function ProductMainForm(event) {
+      var formData = $('#product-main-form').serialize()
+      event.preventDefault();
+      $.ajaxSetup({
+        headers: {
+          "X-CSRFToken": '{{csrf_token}}'
+        }
+      });
+
+      if ($('#product-id-value').attr('value') == 'false') {
+        console.log('create')
+        $.ajax({
+          url: '{% url "product-create" %}',
+          dataType: 'json',
+          type: 'POST',
+          data: formData,
+          success: function (data) {
+            $('#product-id-value').attr('value', data['id']);
+            var attributes = data['attributes']
+            var htmlData = ''
+            for (let index = 0; index < attributes.length; index++) {
+              htmlData += `<option value=${attributes[index].id}>${attributes[index].name}</option>`
+            }
+            $('.slider-main-attribute').html(htmlData)
+            console.log($('#product-id-value').attr('value'))
+
+            var my_id = $('#product-id-value').attr('value');
+
+            console.log("my_id", my_id);
+            sessionStorage.setItem("id", my_id);
+            $("#product-main-form").attr("value", my_id);
+          },
+          error: function (data) {
+            console.log(data)
+          }
+        });
+      } else {
+
+        console.log('update')
+        var id = $('#product-id-value').attr('value')
+        $.ajax({
+          url: `/updateProduct/${id}/`,
+          dataType: 'json',
+          type: 'POST',
+          data: formData,
+          success: function (data) {
+            console.log(data)
+            $('#product-id-value').attr('value', data['id'])
+          },
+          error: function (data) {
+            console.log(data)
+          }
+        });
+      }
+    };
+
+    // temp select category
+    $('#grand').val('{{product.grand_category.name}}')
+  </script>
+
+  <!-- For second form -->
+  <script>
+    var users = getUsers()
+
+    function appendToUsrTable(user, str, id) {
+      $(`#userTable-${str} > tbody:last-child`).append(`
+<tr id="user-${user.id}" sub-attribute-id=${id}>
+    <td class="userData" name="name">${user.name}</td>
+    '<td align="right">
+      <i class="far fa-edit" onClick="editUser(${user.id},${id})" attribute-id=${id} data-bs-toggle="modal" data-bs-target="#myUpdateModal"></i>
+    </td>
+    <td align="right">
+      <i class="far fa-trash-alt" onClick="deleteUser(${user.id},${id})"></i>
+    </td>
+</tr>
+`);
+    }
+
+    // Load all users to User Table
+    $.each(users, function (i, user) {
+      appendToUsrTable(user);
+    });
+
+    // Attribute Creation Form
+    function addAttribute(product_id, attribute, name, user, sp) {
+      $.ajax({
+        url: `/createSAttribute/`,
+        dataType: 'json',
+        type: 'POST',
+        data: {
+          'product_id': product_id,
+          'attribute': attribute,
+          'name': name
+        },
+        success: function (res) {
+          addUser(user, sp, res.id);
+
+          //create new modal for attribute
+          $('#acadmic_r').append(`<div class="modal fade" id="myModal-${user.id}" tabindex="-1" role="dialog"
+                aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                          aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Update Attribute</h4>
+                    </div>
+                    <form id="updateUser" class="" action="" method='POST'>
+                    <div class="modal-body">
+                        <label for="name">Name</label>
+                        <input class="form-control" type="text" name="name" value="${name}"
+                          sub-attr="(${user.id},${res['id']})"
+                          sub-attribute-id-for-backend='${res['id']}' />
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" type="submit" class="btn btn-primary"
+                        onClick="updateUser(${res['id']},${user.id})">Save changes</button>
+                      <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                    </div>
+                      </form>
+                  </div>
+                </div>
+              </div>`);
+
+        },
+        error: function (data) {
+          console.log(data)
+        }
+      });
+    }
+
+    // Attribute Delete
+    function deleteAttribute(attribute_id) {
+      console.log(attribute_id)
+      $.ajax({
+        url: `{% url 'delete-sa-attribute' %}`,
+        dataType: 'json',
+        type: 'POST',
+        data: {
+          'id': attribute_id
+        },
+        success: function (data) {
+          console.log(data)
+        },
+        error: function (data) {
+          console.log(data)
+        }
+      });
+    }
+
+    // Attribute Edit Form
+    function editAttributeOnBackend() {
+      // hide update modal
+      $('#myUpdateModal').modal('hide')
+      var formEl = document.forms.updateUser;
+      var formData = new FormData(formEl);
+      var name = formData.get('name');
+      var id = formData.get('id');
+      $.ajax({
+        url: `{% url 'update-sa-attribute' %}`,
+        dataType: 'json',
+        type: 'POST',
+        data: {
+          'name': name,
+          'id': id
+        },
+        success: function (res) {
+          // update table record
+
+          // fetch target row using sub-attribute-id
+          $(`tr[sub-attribute-id=${res.id}] td.userData`).text(res.name)
+        },
+        error: function (data) {
+          console.log(data)
+        }
+      });
+    }
+
+    $("form.addUser").submit(function (e) {
+      e.preventDefault();
+      var x = $(this).attr(`id`);
+      var index = x.lastIndexOf("-")
+      var sp = x.slice(index + 1)
+      var user = {};
+      var nameInput = $('input[name="name"]').val();
+      if (nameInput) {
+        // Cannot get why we are storing attribute
+        $(this).serializeArray().map(function (data) {
+          user[data.name] = data.value;
+        })
+
+        var lastUser = users[users.length - 1];
+        user.id = lastUser.id + 1
+
+        var product_id = $('#product-id-value').attr('value')
+        var name = $(this).find('input[name="name"]').val();
+        var attribute = $(this).find('input[name="attribute"]').val();
+        addAttribute(product_id, attribute, name, user, sp);
+      }
+    });
+
+    $("#updateUser").submit(function (e) {
+      e.preventDefault();
+      var formEl = document.forms.updateUser;
+      var formData = new FormData(formEl);
+      var name = formData.get('name');
+      console.log('Here I am ', name)
+    });
+
+    function addUser(user, str = '', id) {
+      users.push(user);
+      appendToUsrTable(user, str, id);
+    }
+
+    function editUser(id, sub_attribute_id) {
+      var attribute = $(`#addUser-${id}`).find('input[name="attribute"]').val();
+      var sub_attribute = sub_attribute_id
+      let name = $(`#user-${id}`).find('.userData').text();
+      // Update the text of name and id input fields of modal
+      $('#myUpdateModal input#userName').val(name)
+      $('#myUpdateModal input#subAttrId').val(sub_attribute_id)
+    }
+
+    function deleteUser(id, attribute_id) {
+      var action = confirm("Are you sure you want to delete this user?");
+      var msg = "User deleted successfully!";
+      deleteAttribute(attribute_id)
+
+      $(`.table #user-` + id).remove();
+    }
+
+  </script>
+
+  <!-- For third form (####### Rola ########) -->
+  <script>
+    // Get last id of sliders added
+    var lastSliderId = 3;
+
+    // Read URL for image handling
+    function readURL(source, target) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        target.attr('src', e.target.result);
+      }
+      reader.readAsDataURL(source.files[0]);
+    }
+
+    // update Image after selection
+    function updateImage(element) {
+      const parent = $(element).parents('.slider_img');
+      const imgFile = parent.find('.attr_img');
+      readURL(element, imgFile);
+    }
+
+    //product slider image addition
+    function product_slider_image_creation() {
+      $('.product-slider-image').submit(function (e) {
+        e.preventDefault()
+        var _this = $(this)
+        if ($('#product-id-value').attr('value') == false) {
+          alert('please submit the form1')
+        } else {
+          var data = new FormData($(this)[0]);
+          var form = $(this);
+          var formdata = false;
+          if (window.FormData) {
+            formdata = new FormData(form[0]);
+          }
+          const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+          formdata.append('product', $('#product-id-value').attr('value'))
+          var false_ = false
+          if ($(this).children(".id").length > 0) {
+            false_ = true
+          }
+            
+          if (!false_) {
+            axios({
+                method: "POST",
+                url: "{% url 'create-slider-image' %}",
+                data: formdata,
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                  'X-CSRFToken': csrftoken
+                },
+              }).then(response=> {
+                _this.parent().attr('id',response.data.id)
+                _this.find('.btn_remove').attr('id',response.data.id)
+                  console.log("response",response.data.id)
+              })
+              // }).then(function (user) {
+              //   _this.append(`<input type="hidden" value="" name="id" class="id">`)
+              //     console.log("ivweifv2i---------------",user.id)
+              // })
+              .catch(function (error) {
+                console.log(error)
+              })
+             
+            }
+        
+        }
+        $('.delete').click(function(){
+  var del_id = $(this).attr('id')
+  deleteImageSlider(del_id)
+  console.log("Talha whevfi",del_id)
+})
+   
+        // changing the related attributes and sub-attributes  
+      });
+      
+     
+    }
+    
+    
+
+    //function to select values of sub attribute and related attribute
+    function attribute_chage() {
+      $('.slider-main-attribute').change(function () {
+        var attribute_id = $(this).val();
+        var product_id = $('#product-id-value').attr('value')
+        var this_ = $(this)
+        $.ajax({ // initialize an AJAX request
+          url: "{% url 'get-slider-attr-related-attribute' %}", // set the url of the request 
+          data: {
+            'attribute_id': attribute_id, // add the attribute id to the GET parameters
+            'product_id': product_id // add the attribute id to the GET parameters
+          },
+          success: function (data) { // `data` is the return of the `load_cities` view function
+            var sub_attributes = data['sub_attributes']
+            var related_attributes = data['related_attributes']
+            var htmlData = ''
+            for (let index = 0; index < sub_attributes.length; index++) {
+              htmlData +=
+                `<option value=${sub_attributes[index].id}>${sub_attributes[index].name}</option>`
+            }
+            this_.parent().next().children('.slider-sub-attribute ').html(htmlData)
+            var htmlData = ''
+
+            for (let index = 0; index < related_attributes.length; index++) {
+              htmlData +=
+                `<option value=${related_attributes[index].id}>${related_attributes[index].name}</option>`
+            }
+            this_.parent().next().next().children('.slider-related-attribute').html(htmlData)
+
+          }
+        });
+      });
+
+
+    }
+
+    $('#add_new_form').click(function () {
+
+      var data = {}
+      data['id'] = $('#product-id-value').attr('value')
+      var attributes_html = ''
+      $.ajax({
+        url: `/getAttibutesFromProduct/`,
+        dataType: 'json',
+        type: 'GET',
+        data: data,
+        success: function (data) {
+          console.log("ttttttttttt",data)
+          data = data['attributes']
+          for (let index = 0; index < data.length; index++) {
+            attributes_html += `<option value=${data[index].id}>${data[index].name}</option>`
+          }
+          $('.form_append').append( 
+            `<div class="form1" id="12" style="border: 1px solid lightgrey;border-top: 4px solid #0ea20e; margin-bottom: 30px;">
+                      <form action="" class="product-slider-image" method="POST" enctype="multipart/form-data">
+                        <div class="add_new_form">
+                          <h6 style="text-align: left;
+                        border: 1px solid lightgrey;
+                        padding: 8px;
+                        font-size: 13px;">
+                            New Product Slider Image
+                          </h6>
+                        </div>
+                        <div class="slider_img" style="width: 70%; padding: 15px;">
+                          <div class="block" style="display: flex; align-items: center; margin: 20px 0px;">
+                            <label for="" style="font-size: 16px; font-weight: 700; width: 40%; text-align: justify;">Choose
+                              File <span style="color: red;">*</span></label>
+                            <input type="file" name="image" id="p_file" class="p_file" style="width: 50%;" onchange="updateImage(this)">
+                          </div>
+                          <div class="block" style="display: flex; align-items: center; margin: 20px 0px;">
+                            <label for=""
+                              style="font-size: 16px; font-weight: 700; width: 40%; text-align: justify;">Attribute
+                              <span style="color: red;">*</span></label>
+                            <select class="slider-main-attribute" name="atttibute" style="width: 50%;">
+                              <option>--------------</option>
+                              ${attributes_html}
+                            </select>
+                          </div>
+                          <div class="block" style="display: flex; align-items: center; margin: 20px 0px;">
+                            <label for="" style="font-size: 16px; font-weight: 700; width: 40%; text-align: justify;">Sub
+                              Attribute <span style="color: red;">*</span></label>
+                            <select class="slider-sub-attribute" style="width: 50%;" name="sub_attribute">
+                              <option>--------------</option>
+                            </select>
+                          </div>
+                          <div class="block" style="display: flex; align-items: center; margin: 20px 0px;">
+                            <label for="" style="font-size: 16px; font-weight: 700; width: 40%; text-align: justify;">Related
+                              Sub Attribute <span style="color: red;">*</span></label>
+                            <select class="slider-related-attribute" style="width: 50%;" name="related_sub_attribute">
+                              <option>--------------</option>
+                            </select>
+                          </div>
+                          <div>
+                            <img class="attr_img" src="#" />
+                          </div>
+                          <div class="block"
+                            style="display: flex;align-items: end;margin: 20px 0px 10px 0px;justify-content: flex-end;width: 140%;">
+                            <button type="button" name="remove" id="12" class="btn btn-danger btn_remove delete deleting">Delete</button>
+                            
+                            <button type="submit" class="btn btn-success">Save</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>`
+          );
+          
+          attribute_chage()
+          product_slider_image_creation()
+         
+        },
+        error: function (data) {
+          console.log(data)
+        }
+      });
+    });
+
+    $(document).on('click', '#career .btn_remove', function () {
+      var button_id = $(this).attr("id");
+      // $.ajax({
+        // Update this url for deleting slider
+        // url: `/productUsersGET/{{sliderId}}/`,
+        // dataType: 'json',
+        // type: 'DELETE',
+        // data: {},
+        // success: function (res) {
+          // Delete from front end after receiving succesful response
+          $(`#career #${button_id}`).remove();
+          // $(`#career #${res.id}`).remove();
+      //   },
+      //   error: function (data) {
+      //     console.log(data)
+      //   }
+      // });
+    });
+    function deleteImageSlider(id) {
+  // var action = confirm("Are you sure you want to delete this ImageSlider?");
+  // if (action != false) {
+    $.ajax({
+        url: '{% url "product-users-get-slider" %}',
+        data: {
+            'id': id,
+        },
+        dataType: 'json',
+        success: function (data) {
+            if (data.deleted) {
+              console.log("Successfully deleted Image Slider")
+            }
+        }
+    });
+  }
+
+$('.delete').click(function(){
+  var del_id = $(this).attr('id')
+  deleteImageSlider(del_id)
+  console.log("Talha whevfi",del_id)
+})
+  </script>
+
+</body>
+
+</html>

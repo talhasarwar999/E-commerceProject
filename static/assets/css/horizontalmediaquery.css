@@ -1,0 +1,119 @@
+/******************************** For 1400 to max design ************************/
+
+@media screen and (min-width:1401px) {}
+
+
+
+/******************************** For Mini Laptop start ********************************/
+
+@media screen and (max-width: 1400px) and (min-width:1025px) {
+
+
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next {
+        left: 5px;
+        top: 200px;
+        right: auto;
+    }
+
+    .swiper-button-next,
+    .swiper-rtl .swiper-button-prev {
+        right: 5px;
+        top: 200px;
+        left: auto;
+    }
+
+    /******************************** For Mini Laptop end ********************************/
+
+}
+
+/******************************** For Ipad Pro Start ********************************/
+
+@media screen and (max-width: 1024px) and (min-width: 992px) {
+
+
+      .swiper-button-prev,
+      .swiper-rtl .swiper-button-next {
+          left: 5px;
+          top: 150px;
+          right: auto;
+      }
+
+      .swiper-button-next,
+      .swiper-rtl .swiper-button-prev {
+          right: 5px;
+          top: 150px;
+          left: auto;
+      }
+
+      /******************************** For Ipad Pro End ********************************/
+}
+
+/******************************** For Ipad  IOS Start Devices *********************************/
+
+@media screen and (max-width:991px) and (min-width: 768px) {
+
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next {
+        left: 5px;
+        top: 120px;
+        right: auto;
+    }
+
+    .swiper-button-next,
+    .swiper-rtl .swiper-button-prev {
+        right: 5px;
+        top: 120px;
+        left: auto;
+    }
+
+    .swiper-button-next:after,
+    .swiper-rtl .swiper-button-prev:after {
+        content: 'next';
+        font-size: 35px;
+    }
+
+    .swiper-button-prev:after,
+    .swiper-rtl .swiper-button-next:after {
+        content: 'prev';
+        font-size: 35px;
+    }
+    /******************************** For Ipad  IOS End Devices *********************************/
+}
+
+/******************************* For Mobile Devices Start ********************************/
+
+@media screen and (max-width: 767px) {
+
+    .first-container {
+        margin-top: 50px;
+    }
+
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next {
+        left: 5px;
+        top: 120px;
+        right: auto;
+    }
+
+    .swiper-button-next,
+    .swiper-rtl .swiper-button-prev {
+        right: 5px;
+        top: 120px;
+        left: auto;
+    }
+
+    .swiper-button-next:after,
+    .swiper-rtl .swiper-button-prev:after {
+        content: 'next';
+        font-size: 35px;
+    }
+
+    .swiper-button-prev:after,
+    .swiper-rtl .swiper-button-next:after {
+        content: 'prev';
+        font-size: 35px;
+    }
+}
+
+/*===============  For Mobile Devices End ===============*/

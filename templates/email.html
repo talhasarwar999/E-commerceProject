@@ -1,0 +1,436 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="vieport" content="width=device-width">
+
+
+    <title>Dolce E Fiore</title>
+</head>
+
+<style>
+    body {
+    font-family: sans-serif;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 19px;
+}
+
+h4 {
+    font-size: 16px;
+}
+
+div {
+    font-size: 16px;
+}
+
+.navbar {
+    width: 60%;
+    background: #fbfbfd;
+    margin: auto;
+}
+
+.title-logo {
+    width: 300px;
+    margin-left: 0px;
+}
+
+
+.container-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
+}
+
+.container-body {
+    width: 90%;
+    /* margin: 30px 30px; */
+    padding: 20px 0px;
+}
+
+.container-body h1 {
+    color: #404553;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.container-body h3 {
+    color: #404553;
+    margin-bottom: 10px;
+}
+
+.container-body div {
+    color: #acaeb4;
+    margin-bottom: 10px;
+}
+
+/* .border-line {
+    margin: auto;
+    width: 90%;
+    border-bottom: 1px solid grey;
+} */
+
+.container-3 {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: flex-start; */
+    border-top: 1px solid #f3f5f9;
+    border-bottom: 1px solid #f3f5f9;
+    width: 90%;
+}
+
+.cont3_sect {
+    /* margin: 10px 0px; */
+    padding: 10px 0;
+}
+
+.cont3_sect p {
+    color: #757575;
+    font-weight: 500;
+}
+
+#cont3_heading {
+    color: #969696;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+#cont3_img-head {
+    color: #969696;
+    font-weight: 600;
+}
+
+.mastercard-img {
+    width: 80px;
+}
+
+.container-4 {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.product-sect {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+#product-bottom {
+    border-bottom: 1px solid #f3f5f9;
+}
+
+.product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image {
+    width: 100px;
+    padding: 20px;
+}
+
+.product-info {
+    line-height: 25px;
+}
+
+.product-info h4 {
+    font-weight: 600;
+    color: #757575
+}
+
+.product-info p {
+    color: #757575;
+    font-weight: 200;
+}
+
+
+.cash-info {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 0px;
+}
+
+.checkout {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    padding: 5px 0;
+}
+
+.checkout p {
+    color: #757575;
+    font-weight: 200;
+}
+
+#checkout-price {
+    color: #757575 !important;
+    font-weight: 600;
+}
+
+#checkout-total {
+    border-bottom: 1px solid #e7e7e7;
+    border-top: 1px solid #e7e7e7;
+}
+
+.discount {
+    color: #4ce590 !important;
+    font-weight: 600 !important;
+}
+
+.container-5 {
+    width: 80%;
+}
+
+#cont5-para {
+    margin-top: 20px;
+}
+
+.container-5 div {
+    color: #757575;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+
+.container-5 h3 {
+    color: #404553;
+    margin-bottom: 5px;
+}
+
+.container-6 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #fbfbfd;
+    height: 10vh;
+}
+
+.cont6-body {
+    width: 90%;
+    margin: auto;
+    color: #757575;
+}
+
+#help-section {
+    float: left;
+}
+
+#help-link {
+    color: #5d96ff;
+    text-decoration: none;
+}
+
+#copyright {
+    float: right;
+}
+
+.container-body div a {
+    text-decoration: none;
+    color: #5d96ff;
+}
+/* ------------------------------------------------------------/ */
+
+/******************************** For Ipad IOS Devices ********************************/ 
+@media screen and (max-width: 991px) and (min-width:768px) { 
+    .container-body {
+        width: 90%;
+        padding: 10px 0px;
+    }
+
+    .container-body h1 {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .container-body div {
+        margin-bottom: 5px;
+    }
+
+    .cont3_sect {
+        padding: 5px 0;
+    }
+
+    #cont3_heading {
+        margin-bottom: 10px;
+    }
+
+    .product-sect {
+        padding: 0;
+    }
+}
+
+/******************************** For mobile Devices ********************************/
+@media screen and (max-width: 767px)  {
+    h1 {
+        font-size: 27px;
+    }
+    
+    h3 {
+        font-size: 17px;
+    }
+    
+    h4, div {
+        font-size: 14px;
+    }   
+
+    .checkout {
+        width: 50%;
+        padding: 5px 0;
+    }
+
+}
+</style>
+<body>
+    <div class="navbar">
+        <img class="title-logo" src="{% static 'assets/images/email/imgs/logo_row.png' %}" alt="logo">
+    </div>
+
+    <div class="container-2">
+        <div class="container-body">
+            <!-- <h1>Your Order Cancelled: #60</h1> -->
+            <!-- <h1>Your Order Confirmed!</h1> -->
+            <h1>Your Order Failed</h1>
+            <h3>Hello Chris</h3>
+            <!-- <div>Notification to let you know order six belong to our test user has been cancelled</div> -->
+            <!-- <div>Your order has been confirmed and will be shipping within next two days.</div> -->
+            <div>Sorry! your order failed <a href="">Try again:</a> </div>
+        </div>
+        <!-- <br>      bottom border -->
+        <!-- <div class="border-line"></div> -->
+
+        <div class="container-3">
+
+            <div class="cont3_sect">
+                <h4 id="cont3_heading">Order Date</h4>
+                <p>12, Jan, 2018</p>
+            </div>
+
+            <div class="cont3_sect">
+                <h4 id="cont3_heading">Order No</h4>
+                <p>DF18898320</p>
+            </div>
+
+            <div class="cont3_sect">
+                <h4 id="cont3_img-head">Payment</h4>
+                <img class="mastercard-img" src="{% static 'assets/images/email/imgs/mastercard_1.png' %} " alt="mastercard">
+            </div>
+
+            <div class="cont3_sect">
+                <h4 id="cont3_heading">Shipping Address</h4>
+                <p>48 Alexander Plaza Apt. 109</p>
+            </div>
+
+        </div>
+
+
+        <div class="container-4">
+            <div class="product-sect" id="product-bottom">
+                <div class="product">
+                    <img class="product-image" src="cid:{% static 'assets/images/email/imgs/cap_1.png' %}" alt="P-Cap">
+
+                    <div class="product-info">
+                        <h4>Men's Sports Cap</h4>
+                        <p>Quantity: 1</p>
+                        <p>Color: Dark Blue</p>
+                    </div>
+                </div>
+
+                <div class="product-price">
+                    <h3>$ 67.50</h3>
+                </div>
+
+            </div>
+
+
+            <div class="product-sect" id="product-bottom">
+                <div class="product">
+                    <img class="product-image"
+                         src="https://cosmos-project.beyonderissolutions.com/media/media/home/SliderImage/3b.jpg">
+
+                    <div class="product-info">
+                        <h4>Men's Collar Less T-shirt {{full_url}}</h4>
+                        <p>Quantity: 1</p>
+                        <p>Color: Light Grey</p>
+                    </div>
+                </div>
+
+                <div class="product-price">
+                    <h3>$ 112.00</h3>
+                </div>
+
+            </div>
+
+            <div class="cash-info">
+                <div class="checkout">
+                    <p>Subtotal</p>
+                    <p id="checkout-price">$ 188.50</p>
+                </div>
+
+                <div class="checkout">
+                    <p>Shipping Fee</p>
+                    <p id="checkout-price">$ 12.00</p>
+                </div>
+
+                <div class="checkout">
+                    <p>Tax Fee</p>
+                    <p id="checkout-price">$ 7.75</p>
+                </div>
+
+                <div class="checkout">
+                    <p>Discount</p>
+                    <p class="discount">- $ 5.00</p>
+                </div>
+
+                <div class="checkout" id="checkout-total">
+                    <p>Total</p>
+                    <p id="checkout-price">$ 203.25</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="container-5">
+            <!-- <div id="cont5-para">Your order has been cancelled, if you think it is a mistake, please contact us immediately</div> -->
+            <!-- <div id="cont5-para">We'll be sending a shipping confirmation email when the items shipped successfully.</div> -->
+            <div id="cont5-para">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                in</div>
+            <!-- <h3>Pay with cash upon delivery</h3> -->
+            <h3>Thank You for shopping with us!</h3>
+            <div>Dolce E fiore Team</div>
+        </div>
+
+        <div class="container-6">
+            <div class="cont6-body">
+                <div id="help-section">Need Help? Visit our <a id="help-link" href="">Help Center</a></div>
+                <div id="copyright">©dolce e fiore 2021</div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

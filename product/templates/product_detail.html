@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  Products |
+  {{product.grand_category.name}} |
+  {{product.title}}
+{% endblock title %}
+
+{% block content %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'assets/css/Single-product.css' %}" />
+{% endblock css %}
+
+<div class="bread_cum">
+  <div class="container-fluid">
+    <div class="row bread_class">
+      <div class="col-md-12">
+        <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              <a href="{% url 'product-list'  product.grand_category.slug %}">
+                {{product.grand_category.name}}
+              </a>
+            </li> 
+            <li class="breadcrumb-item active" aria-current="page">
+              {{product.title}}
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--------------******************---------- BreadCumb End --------------******************---------->
+
+<!-- *********************Container Start ****************************-->
+
+<div class="container first-container">
+  <!-- ****************** First-Column ***************************** -->
+  <div class="row">
+    <div class="col-md-6 ">
+      <!--*********** Swiper - Horizontal  Start ************************  -->
+      <div class="full-screen">
+
+        {% if product_sliders %}
+        {% for product_slider in  product_sliders %}
+        {% if forloop.counter0 == 0 %}
+          <img src="{{product_slider.image.url}}" />
+        {% endif %}
+
+        {% endfor %}
+        {% endif %}
+
+      </div>
+
+      <div id="small_slides" class="owl-carousel owl-theme">
+        {% for ps in  product_sliders %}
+
+        <div class="item">
+          <!-- <img src="{{ps.image.url}}" class="{{ps.sattribute.name}}" alt="" /> -->
+          <img src="{{ps.image.url}}" class="{{ps.sub_attribute.name}}" alt="" />
+        </div>
+        {% endfor %}
+      </div>
+
+      <!--*********** Swiper-Horizontal-end ************************  -->
+
+    </div>
+
+    <!-- ***************** Product Description ***************************** -->
+    <div class="col-md-6 mt-2 mb-5 single-product">
+      <p class="main-title">{{product.title}}</p>
+      <p class="sub-title">{{product.title}}</p>
+      <p class="product-name-AED-180">AED {{product.price}}</p>
+      <p class="product-sub-tilte">{{product.sub_title}}</p>
+      <hr class="break-line" />
+      {% for key,value in attr_links.items %}
+      <p class="box-size-heading">{{key.name}}</p>
+      <nav class="nav box-size-tabs ">
+        {% for sub_attr in value  %}
+          <a 
+            class="nav-link option-box2 small-size sub_attr_link "
+            sub_attr='{{sub_attr.id}}'
+            super_attr='{{key.id}}'
+            product_id='{{product.id}}'
+            data-filter="{{sub_attr.name}}"  
+          >{{sub_attr.name}}</a>
+        {% endfor %}
+      </nav>
+      {% endfor %}
+
+      <hr class="break-line" />
+      <div class="Quantity">
+        <p>Quantity</p>
+        <div class="ms-3">
+          <div class="quantity-box">
+            <ul class="
+                    list-unstyled
+                    d-flex
+                    justify
+                    content-center
+                    align-items-center
+                  ">
+              <li class="sub" product_id='{{product.id}}'>
+                <i class="fas fa-minus"></i>
+              </li>
+              <li class="num-li">
+                <input type="text" id="root" class="cart-quantity" max="9999" min="1" {% if  order_item_flag %}
+                  value="{{order_item.quantity}}" {% else %} value="1" {% endif %} product_id={{product.id}} />
+              </li>
+              <li class="add" product_id='{{product.id}}'>
+                <i class="fas fa-plus"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <button class="add-to-cart-button add-remove-to-cart" product_id='{{product.id}}'>
+        Add to cart<i class="fas fa-shopping-cart  ms-3"></i>
+      </button>
+      <hr class="break-line" />
+      <p class="product-code">Product Code {{product.code}}</p>
+      <p class="product-description-title">Description</p>
+      <div class="product-description">
+        {{product.description}}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+{% block script %}
+
+<script>
+  $('#small_slides.owl-carousel').owlCarousel({
+    loop: false,
+    margin: 10,
+    nav: true,
+    dots: false,
+    responsive: {
+      0: {
+        items: 3
+      },
+      600: {
+        items: 3
+      },
+      1000: {
+        items: 4
+      }
+    }
+  });
+  $(".box-size-tabs a").click(function () {
+    const value2 = $(this).attr('data-filter');
+    console.log("value2", value2)
+
+    const small_img = $('#small_slides .item img').filter('.' + value2).attr('src');
+    $('.full-screen > img').attr('src', small_img);
+    console.log("tabs a click", small_img)
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+    $('#small_slides .item img').click(function () {
+      console.log("Clicked")
+      var smallImg = $(this).attr('src');
+      console.log(smallImg)
+      $('.full-screen > img').attr('src', smallImg);
+    })
+  })
+</script>
+
+<script>
+  $('.sub_attr_link').click(function () {
+    var product_id = $(this).attr('product_id')
+    var sub_attr = $(this).attr('sub_attr')
+    var super_attr = $(this).attr('super_attr')
+
+    // calling 
+    $.ajax({
+        type: 'GET',
+        url: `/addAttributeToCart/${product_id}/${sub_attr}/${super_attr}/`,
+        success: function (obj) {
+          console.log('okk')
+        },
+        error: function (obj) {
+          console.log('not okkkkk')
+            
+        }
+      })
+  })
+</script>
+{% endblock script %}

@@ -1,0 +1,129 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 my_account">
+      <div class="fm-dialog-mask"></div>
+      <div class="fm-dialog-content">
+        <div class="form_body">
+          <div class="fm-logo" style="background: url(/static/assets/images/Dolce-Logo-white-final.png) no-repeat;">
+          </div>
+          <div class="fm-dialog-close" style="background: url(/static/assets/images/close.png) no-repeat;"></div>
+          {% if   not user.is_authenticated  %}
+
+          <ul class="fm-tabs-bar">
+            <li class="fm-tabs-tab" data-list="tab_2">REGISTER</li>
+            <li class="fm-tabs-tab active " data-list="tab_1" id="sign_in_tab">Sign In</li>
+            <li class="fm-tabs-tab active" data-list="tab_3" id="forgot_pass_tab">Forgot Password</li>
+          </ul>
+          {% endif %}
+
+          <div class="tabs_content">
+
+            {% if   not user.is_authenticated %}
+            <!----------****************-------- Sign In Form START --------************---------->
+            <div class="login-form mb-2 tab_content tab_1">
+
+              <form method="POST" action="{% url 'login' %}" id="login-form">
+                {% csrf_token %}
+                <p class="text-success" id='login-success-text'>Login Successfull.</p>
+                <p class="text-success" id='registeration-success-text'>Account Successfully Created.</p>
+
+                <input type="email" name="email" required id="login_email" placeholder="Email" />
+                <p class="text-danger" id='login-email-error-text'></p>
+
+                <div id="e-error"></div>
+                <div class="show_pass">
+                  <input type="password" placeholder="Password" required name="password" id="login_password" />
+                  <span toggle="#login_password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                </div>
+                <p class="text-danger" id='login-password-error-text'></p>
+                <div class="submit-buttons">
+                  <button type="submit" class="login-button"> SIGN IN </button>
+                </div>
+
+                <div class="forgot-pass">
+                  <a href="#"> Forgot Password? </a>
+                </div>
+              </form>
+            </div>
+            <!----------**************-------- Sign In Form END --------************---------->
+
+            <!----------****************-------- Sign Up Form START --------************---------->
+            <div class="signup-form mb-2 tab_content tab_2">
+              <form method="POST" action="{% url 'register' %}" id="register-form">
+                {% csrf_token %}
+                <input type="text" placeholder="Full Name" required name="fullname" id="fullname" />
+                <p class="text-danger" id='register-error-username'></p>
+                <input type="text" placeholder="Username" required name="username" id="full_name" />
+                <p class="text-danger" id='register-error-username'></p>
+                <input type="email" name="email" required id="register_email" placeholder="Email" />
+                <p class="text-danger" id='register-error-email'></p>
+                <div id="e-error"></div>
+                <div class="show_pass">
+                  <input type="password" placeholder="Password" required name="password1" id="register_password" />
+                </div>
+                <p class="text-danger" id='register-error-password2'></p>
+
+                <div class="show_pass">
+                  <input type="password" placeholder="Confirm Password" required name="password2"
+                    id="register_password" />
+                </div>
+                <div class="submit-buttons">
+                  <button type="submit" class="login-button mt-3"> REGISTER </button>
+                </div>
+
+              </form>
+            </div>
+            <!----------**************-------- Sign Up Form END --------************---------->
+
+            <!----------****************-------- Forget Form START --------************---------->
+            <div class="forgot-email-form mb-2 tab_content tab_3">
+              <form method="POST" action="{% url 'password_reset' %}" id="forgot-email">
+                {% csrf_token %}
+                <input type="email" name="email" required id="register_email" placeholder="Email" />
+                <div id="e-error"></div>
+
+                <div class="submit-buttons">
+                  <button type="submit" class="email-button"> Submit </button>
+                </div>
+
+              </form>
+            </div>
+            <!----------**************-------- Forget Form END --------************---------->
+
+            {% else %}
+            <!----------****************-------- Logout Form START --------************---------->
+            <div class="user_login mb-2">
+              <form method="POST" action="" id="">
+                {% csrf_token %}
+
+                <div class="user_name">
+                  <h6>Username:</h6>
+                  <h6>{{user.username}}</h6> 
+                </div>
+                <div class="submit-buttons">
+                  <a type="submit" href="{% url 'logout' %}" class="logout-button"> Logout </a>
+                </div>
+
+              </form>
+            </div>
+            <!----------**************-------- Logout Form END --------************---------->
+
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Universal Alert Box START -->
+    <div id="msg_alert" class="alert hide">
+      <div id="alert-icon"></div>
+      <span class="msg" id="msg"></span>
+      <div class="close-btn">
+        <span class="fas fa-times"></span>
+      </div>
+    </div>
+    <!-- Universal Alert Box END -->
+
+  </div>
+</div>
+<!--********************** Login Popup END ************************-->

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  Blogs
+{% endblock title %}
+{% block content %}
+
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'assets/css/blog.css' %}" />
+{% endblock css %}
+
+  <!--------------******************---------- BreadCumb End --------------******************---------->
+
+  <!-------------******************---------- Blog Section START-------------******************---------->
+  <div class="container blog">
+    <div class="row">
+        <div class="col-md-3 hidden-sm hidden-xs"></div>
+        <div class="col-md-6 col-12">
+    <div class="title">
+        <h3>
+            You can't buy happiness, but you can buy flowers which is prety much the same thing.
+        </h3>
+    </div>
+</div>
+<div class="col-md-3 hidden-sm hidden-xs"></div>
+</div>
+
+<div class="container blog-post">
+
+
+  <div class="row">
+    {% for object in  objects %}
+      
+      <div class="col-lg-4 col-md-6">
+        <div class="card card-block blog-post" data-maxlength="200">
+          <a href="{% url 'blog-detail' object.id %}">
+            <img src="{{object.thumbnail.url}}">
+          </a>
+          <a href="{% url 'blog-detail' object.id %}">
+            <h5 class="blog-title">{{object.title}}</h5>
+          </a>
+          <div class="publish-details">
+            <i class="far fa-user"></i>
+            <p class="user-name">{{object.user.fullname}}</p>
+            <i class="far fa-clock"></i>
+            <p> {{object.created_at|date:"M d, Y"}} </p>
+          </div>
+          <div class="blog-text">
+            {{object.description|safe}}
+            </div>
+          <a href="{% url 'blog-detail' object.id %}" class="blog_btn">
+            Read More
+          </a>
+        </div>
+      </div>
+
+    {% endfor %}
+
+  </div>
+  {% include "pagination.html" %}
+
+</div>
+</div>
+
+  <!-------------******************---------- Blog Section End -------------******************---------->
+
+  <!-------------******************---------- catergories Section -----------******************---------->
+
+  
+{% endblock content %}

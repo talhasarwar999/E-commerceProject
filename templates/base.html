@@ -1,0 +1,680 @@
+{% load static %}
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="{% static 'assets/images/favicon-32x32.png' %}" type="image/gif">
+
+  <title> {% block title %}
+
+    {% endblock title %} </title>
+  <!-- ////// Google Fonts ////// -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,300italic" rel="stylesheet"
+    type="text/css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Serif" />
+
+  <!-- ////// font awesome ////// -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+
+  <!-- ////// Bootstrap CSS ////// -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- ////// owl carousal ////// -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
+  <!-- ////// Custom CSS ///////// -->
+  <link rel="stylesheet" href="{% static 'assets/css/index.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/media_query.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/alert.css' %}" />
+
+  {% block css %}
+
+  {% endblock css %}
+</head>
+
+<body>
+
+
+  <!--------------******************------------ HEADER Start --------------******************---------->
+
+  <header class="head trans_300">
+
+    <div id="topBar">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-12 top-info">
+
+            <span>
+              <a href="tel:+ {{header.phone_no}}">
+                <i class="fa fa-phone-alt"></i>
+                {{header.phone_no}}
+              </a>
+            </span>
+            <span>
+              <a href="mailto:{{header.email}}">
+                <i class="fa fa-envelope"></i>
+                {{header.email}}
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--------------******************---------- Main Navigation --------------******************---------->
+
+    <div class="main_nav_container">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="logo_container">
+              <a href="{% url 'home' %}"><img src="{% static 'assets/images/Dolce-Logo-white-final.png' %}"></a>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <nav class="navbar">
+              <ul class="navbar_menu">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'shop' %}">shop</a></li>
+                <li>
+                  <a href="#">Category <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                  <ul>
+                    {% for  nav in nav_links %}
+                    <li><a href="{% url 'product-list' nav.category.slug %}">{{nav.nav_title}}</a></li>
+                    {% endfor %}
+                  </ul>
+                </li>
+
+                <li><a href="{% url 'blog-list' %}">BLog</a></li>
+                <li><a href="{% url 'cart-list' %}">Cart</a></li>
+                <li><a href="{% url 'contact-us' %}">Contact</a></li>
+              </ul>
+              <!----- ********* Navbar Right Side Icons START ********* ----->
+              <ul class="navbar_user">
+                <li>
+                  <div class="search-box">
+                    <i class="fa fa-search" onclick="openSearch()" arial-hidden="true"></i>
+                  </div>
+                </li>
+                <li class="checkout">
+                  <a href="{% url 'cart-list' %}">
+                    <i class="fa fa-shopping-cart" arial-hidden="true"></i>
+                    <span class="checkout_items-super">
+                      {% if cartItem.count != 0  %}
+                        <span id="checkout_items" class="checkout_items">
+                          {{cartItem.count}}
+                        </span>
+                      {% endif %}
+                      <!-- <span id="guest_checkout_items" class="checkout_items">
+                        0
+                      </span> -->
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <div class="user_account">
+                    <i class="fas fa-user"></i>
+                    <!-- {% if  not '___test' in user.username %}
+                    {{user.username}}
+                    {% endif %} -->
+
+                  </div>
+                </li>
+              </ul>
+              <!----- ********* Navbar Right Side Icons END ********* ----->
+            </nav>
+
+            <!--------------******************---------- Hamburger Bar/ Mobile Menu Bar --------------******************---------->
+            <button class="hamburger">
+              <div class="bar"></div>
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <!--------------******************---------- Hamburger Nav Menu for Mobile screens --------------******************---------->
+  <nav class="mobile-nav">
+    <a href="{% url 'home' %}">Home</a>
+    {% for  nav in nav_links %}
+    <a href="{% url 'product-list' nav.category.slug %}">{{nav.nav_title}}</a>
+    {% endfor %}
+
+    <a href="{% url 'shop' %}">shop</a>
+    <a href="{% url 'blog-list' %}">BLog</a>
+    <a href="{% url 'cart-list' %}">Cart</a>
+    <a href="{% url 'contact-us' %}">Contact</a>
+  </nav>
+
+  <!--------------************* *****------------ HEADER  END --------------******************---------->
+
+  <!--------------******************---------- BreadCumb Start --------------******************---------->
+
+
+  {% block content %}
+
+  {% endblock content %}
+
+
+
+
+  <!-------------******************---------- catergories Section START -------------******************---------->
+  <div class="container-fluid">
+    <div class="row">
+      <section class="boxes gx-0">
+        {% for category in categories  %}
+        <a href="{% url 'product-list' category.slug %}">
+          <div class="box">          
+            {% if category.icon.url != '' %}                        
+              <img src="{{category.icon.url}}" />
+              <p>{{category.name}}</p>
+            {% endif %}
+          </div>
+        </a>
+
+        {% endfor %}
+      </section>
+    </div>
+  </div>
+
+  <!-------------******************---------- catergories Section END -------------******************---------->
+
+  <!-------------******************---------- FOOTER -----------******************---------->
+
+  <div class="container-fluid">
+    <div class="row social_icons">
+      <div class="col-md-12">
+        <div class="container">
+          <div class="row py-2">
+            <div class="col-md-7 social_text">
+              <p>{{footer.footer_title}}</p>
+            </div>
+            <div class="col-md-5 right_social">
+              {% if footer.facebook_link %}
+              <a href="{{footer.facebook_link}}" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              {% endif %}
+              {% if footer.twitter_link %}
+              <a href="{{footer.twitter_link}}" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+              {% endif %}
+              {% if footer.instagram_link %}
+              <a href="{{footer.instagram_link}}" target="_blank">
+                <!-- <i class="fab fa-instagram"></i> -->
+                <i class="fab fa-instagram-square"></i>
+              </a>
+              {% endif %}
+              {% if footer.linkedin_link %}
+              <a href="{{footer.linkedin_link}}" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row social_list">
+      <div class="col-md-12">
+        <div class="container">
+          <div class="row list_sides py-4">
+            <div class="col-md-3 col-6 lists">
+              <h6>Information / Useful Links</h6>
+              <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li> <a href="{% url 'shop' %}">Shop</a></li>
+                <li><a href="{% url 'contact-us' %}">Contact Us</a></li>
+                <li><a href="{% url 'blog-list' %}">Blogs</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-6 lists">
+              <h6 class="my_ac">MY ACCOUNT</h6>
+              <ul>
+                <li class="user_account"><i style="color: #000000;font-style: normal;
+                  font-size: 14px;">Login</i></li>
+                <li class="user_account"><i style="color: #000000;font-style: normal;
+                    font-size: 14px;">Register</i></li>
+                <li><a href="{% url 'cart-list' %}">Cart</a></li>
+                <li><a href="{% url 'payment-detail'  %}">Checkout</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-6 lists help">
+              <h6>HELP</h6>
+              <ul>
+                <li><a href="{% url 'faq' %}" target="_blank">FAQ's</a></li>
+                <li><a href="{% url 'contact-us' %}">Contact Us</a></li>
+                <li><a href="{% url 'privacy-policy' %}" target="_blank">Privacy Policy</a></li>
+                <li><a href="{% url 'terms-codition' %}" target="_blank">Terms and Conditions</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-12 lists contact-info">
+              <h6>CONTACT INFO</h6>
+              <ul>
+                <li class="address">
+                  <i class="fas fa-globe-europe"></i>
+                  <span>{{footer.office_address}}</span>
+                </li>
+                <li class="phone"><i class="fas fa-phone-alt"></i>
+                  <span><a href="tel:{{footer.phone_no}}">{{footer.phone_no}}</a></span>
+                </li>
+                <li class="email">
+                  <i class="fas fa-envelope"></i>
+                  <span><a href="mailto:{{footer.email}}">{{footer.email}}</a></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row footer_last">
+      <div class="col-md-12">
+        <div class="container">
+          <div class="row py-2">
+            <div class="col-md-6 footer_left">
+              <p>Copyright &copy; 2021 <a href="#">Dolce-e-Fiore </a>All Rights Reserved. | <a href="{% url 'privacy-policy' %}" target="_blank">Privacy
+                  Policy</a> | <a href="{% url 'terms-codition' %}" target="_blank">Terms and Conditions</a></p>
+            </div>
+            <div class="col-md-6 footer_right">
+              <a href="#">
+                <i class="fab fa-cc-visa"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-cc-paypal"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-cc-amazon-pay"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-cc-amazon-pay"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  {% for message in messages  %}
+
+  <div id="msg_alert" class="alert hide">
+    <div id="alert-icon"></div>
+    <span class="msg" id="msg"> {{message}} </span>
+    <div class="close-btn">
+      <span class="fas fa-times"></span>
+    </div>
+  </div>
+
+  <script>
+
+  </script>
+  {% endfor %}
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        <div id="myOverlay" class="overlay">
+          <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+          <div class="overlay-content">
+              <input type="text" id='product-search' placeholder="Search.." name="search">
+              <button type="submit" id='product-search-button'><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  {% include "login_register.html" %}
+
+  <!--********************** Login Popup END ************************-->
+
+
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/23b1f56e60.js"></script>
+  <!-- // owl carousel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+  <!-- // Custom Js // -->
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js">
+  </script>
+
+  <script src="{% static 'assets/js/cart.js' %}"></script>
+
+  <script>
+    function messageBox(message) {
+      console.log(message)
+      var alertBox = document.getElementById("msg_alert");
+      console.log(alertBox)
+      const messageIcon = document.getElementById("alert-icon");
+      $('.alert').addClass("show");
+      $('.alert').removeClass("hide");
+      $('.alert').addClass("showAlert");
+      setTimeout(function () {
+        $('.alert').removeClass("show");
+        $('.alert').addClass("hide");
+      }, 7000);
+
+
+      alertBox.innerHTML = message;
+
+      // messageIcon.innerHTML = `<span class="fas fa-check-circle"></span>`
+    }
+
+    $('.add-remove-to-cart').click(function (e) {
+      var product_id = $(this).attr('product_id')
+      var cart_quantity = $('.cart-quantity')
+      var array = document.querySelectorAll('.sub_attr_link.active')
+      var values_array = ''
+
+      array.forEach(element => {
+        console.log(element)
+        values_array += element.getAttribute('sub_attr')
+        values_array += '-'
+      });
+      console.log(values_array)
+
+      if (cart_quantity.val() == undefined) {
+        if (`{{user.is_authenticated}}` == "False") {
+          console.log(product_id)
+          console.log("user is not autheticated ---")
+          let productPreviousCount = +getCookie(product_id) || 0;
+          setCookie("product-" + product_id, productPreviousCount + 1)
+          // Update Cart Count for Guest User
+          $("#guest_checkout_items").text(getCartCount());
+          messageBox('Item added to cart successfully')
+        } else {
+          $.ajax({
+            url: '/addToCart/',
+            data: {
+              'product_id': product_id,
+            },
+            dataType: 'json',
+            success: function (data) {
+              var message = data['message']
+              messageBox(message)
+              $('.checkout_items-super').html(data['cartItemCount'])
+              if (data['cartItemCount'] != undefined) {
+                $('.checkout_items-super').html(
+                  `<span id="checkout_items" class="checkout_items" >${data['cartItemCount']}</span>`)
+              }
+            },
+            error: function (data) {
+              console.log('not okk')
+
+            }
+          });
+
+        }
+      } else {
+        if (`{{user.is_authenticated}}` == "False") {
+          console.log("user is not autheticated")
+          let productPreviousCount = +getCookie(product_id) || 0;
+          setCookie("product-" + product_id, productPreviousCount + 1)
+          // Update Cart Count for Guest User
+          $("#guest_checkout_items").text(getCartCount());
+          messageBox('Item added to cart successfully')
+        } else {
+          $.ajax({
+            url: '/addToCart/',
+            data: {
+              'product_id': product_id,
+              'quantity': cart_quantity.val(),
+              'values_array': values_array
+
+            },
+            dataType: 'json',
+            success: function (data) {
+              var message = data['message']
+              messageBox(message)
+
+              $('.checkout_items-super').html('')
+              if (data['cartItemCount'] != undefined) {
+                $('.checkout_items-super').html(
+                  `<span id="checkout_items" class="checkout_items" >${data['cartItemCount']}</span>`)
+              }
+            },
+            error: function (data) {
+              console.log('not okk')
+            }
+          });
+        }
+
+      }
+
+    })
+  </script>
+
+  {% block script %}
+
+  {% endblock script %}
+
+  <script>
+    $("#register-form").submit(function (e) {
+      e.preventDefault();
+      var serializedData = $(this).serialize();
+      $.ajax({
+        type: 'POST',
+        url: "{% url 'register' %}",
+        data: serializedData,
+        success: function (obj) {
+          $(`#register-error-email`).html('')
+          $(`#register-error-password2`).html('')
+          $("#register-form").trigger('reset');
+          $('#sign_in_tab').click()
+
+          $('#registeration-success-text').show()
+        },
+        error: function (obj) {
+
+          var field = obj['responseJSON']['field']
+          var message = obj['responseJSON']['message']
+          console.log(obj)
+          Object.keys(obj['responseJSON']).forEach(function (key) {
+            $(`#register-error-email`).html('')
+            $(`#register-error-password2`).html('')
+          });
+          Object.keys(obj['responseJSON']).forEach(function (key) {
+            var htmlData = ''
+            console.log(key, obj['responseJSON'][key])
+            for (let index = 0; index < obj['responseJSON'][key].length; index++) {
+              var errorMessage = obj['responseJSON'][key][index];
+              htmlData += `<ul><li>${errorMessage}</li></ul>`
+            }
+            $(`#register-error-${key}`).html(htmlData)
+
+          });
+
+        }
+      })
+    })
+    $('#login-success-text').hide()
+    $('#registeration-success-text').hide()
+
+    function sleepFor(sleepDuration) {
+      var now = new Date().getTime();
+      while (new Date().getTime() < now + sleepDuration) {
+        /* Do nothing */
+      }
+    }
+    $("#login-form").submit(function (e) {
+      e.preventDefault();
+      var serializedData = $(this).serialize();
+      $.ajax({
+        type: 'POST',
+        url: "{% url 'login' %}",
+        data: serializedData,
+        success: function (response) {
+          $('#registeration-success-text').hide()
+          $('#login-email-error-text').html('')
+          $('#login-password-error-text').html('')
+          $('#login-success-text').show()
+
+          setTimeout(function () {
+            location.reload('')
+          }, 1200)
+
+        },
+        error: function (response) {
+          var field = response['responseJSON']['field']
+          var message = response['responseJSON']['message']
+          console.log(field, message)
+          if (field == 'password') {
+            $('#login-password-error-text').html('')
+            $('#login-password-error-text').show()
+            $('#login-password-error-text').html(message)
+            $('#login-email-error-text').hide('')
+          }
+          if (field == 'email') {
+            $('#login-email-error-text').html('')
+            $('#login-email-error-text').show()
+            $('#login-email-error-text').html(message)
+            $('#login-password-error-text').html('')
+            $('#login-password-error-text').hide()
+          }
+        }
+      })
+    })
+  </script>
+
+  <script>
+    $('#product-search-button').click(function () {
+
+      var product_value = $('#product-search').val()
+      console.log(product_value)
+      if (product_value != '') {
+        window.location.assign(`/shop/?title=${product_value}`);
+
+      }
+    })
+
+    if ("{{user.is_authenticated}}" == "false") {
+      console.log("user is not autheticated")
+    }
+    console.log("user is not autheticated", `{{user.is_authenticated}}`)
+  </script>
+
+  <script>
+        // // // Quantity Plus Minus Script START \\ \\ \\
+        addbtns = document.querySelectorAll(".add");
+    subbtns = document.querySelectorAll(".sub");
+
+    addbtns.forEach(element => {
+        element.addEventListener("click", () => {
+            //Target Closest Parent
+            let main_div = element.closest(".cart-quantity, .quantity-box");
+            let qty = main_div.querySelector('#root');
+
+            //Increment in value on click of add btn
+            qty.value = parseInt(qty.value) + 1;
+            var product_id = qty.getAttribute('product_id')
+            // Setting cart count in cookies for guest account
+            
+            if (`{{user.is_authenticated}}` == "False") setCookie("product-" + product_id, qty.value);
+
+            $.ajax({
+                url: '/changeQuantity/',
+                data: {
+                    'product_id': product_id,
+                    'quantity': qty.value
+                },
+                dataType: 'json',
+                success: function (data) {
+                    $('#product_sum').html('')
+                    $('#product_sum').html(data['product_sum'])
+                    $('#tax').html('')
+                    $('#tax').html(data['tax'])
+                    $('#total').html('')
+                    $('#total').html(data['total'])
+                    $('#coupon-discount').html(data['coupon_discount'])
+                    $(qty).parent().parent().parent().parent().next().html(`<p> AED ${data['price']} </p>`)
+                    messageBox(data['message'])
+                },
+                error: function (data) {
+                    console.log('not okk')
+
+                }
+            });
+
+        })
+    });
+
+    subbtns.forEach(element => {
+        element.addEventListener("click", () => {
+            //Target Closest Parent
+            let main_div = element.closest(".cart-quantity, .quantity-box");
+            let qty = main_div.querySelector('#root');
+
+            //Decrement if value greater than 1 (At least one product in cart must exist)
+            if (parseInt(qty.value) > 1)
+                qty.value = parseInt(qty.value) - 1;
+
+            var product_id = qty.getAttribute('product_id')
+
+            // Setting cart count in cookies for guest account
+            // if (`{{user.is_authenticated}}` == "False") 
+            if (`{{user.is_authenticated}}` == "False") setCookie("product-" + product_id, qty.value);
+
+            console.log(product_id, qty)
+            console.log(product_id)
+            $.ajax({
+                url: '/changeQuantity/',
+                data: {
+                    'product_id': product_id,
+                    'quantity': qty.value
+                },
+                dataType: 'json',
+                success: function (data) {
+                    console.log('okk')
+                    console.log(data)
+                    $('#product_sum').html('')
+                    $('#product_sum').html(data['product_sum'])
+                    $('#tax').html('')
+                    $('#tax').html(data['tax'])
+                    $('#total').html('')
+                    $('#total').html(data['total'])
+                    $(qty).parent().parent().parent().parent().next().html(`<p> AED ${data['price']} </p>`)
+                    messageBox(data['message'])
+
+                },
+                error: function (data) {
+                    console.log('not okk')
+
+                }
+            });
+
+        })
+    });
+
+    // // // Quantity Plus Minus Script END \\ \\ \\
+  </script>
+
+</body>
+
+</html>

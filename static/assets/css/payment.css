@@ -1,0 +1,342 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a,
+a:hover {
+    color: #212529;
+}
+
+p {
+    margin-bottom: 0px;
+}
+
+.scroll {
+    height: 100%;
+    overflow: hidden;
+}
+
+/********************************************** Contact Us Page START **********************************************/
+
+
+/*************** PlaceHolder Radio Check and Focus Active  CSS ***************/
+
+.shipping-form {
+    border-right: 1px solid #ced4da;
+    padding: 0px 40px;
+    margin-bottom: 100px;
+}
+
+.contact-info .shipping-info::placeholder {
+    color: #8B8B8B !important;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+input[type="text"]:focus-visible {
+    outline: 0px;
+}
+
+input[type="email"]:focus-visible {
+    outline: 1px solid black;
+}
+
+.form-check-input:checked {
+    background-color: black;
+    border-color: black;
+}
+
+.form-check-input:focus {
+    border-color: unset;
+    outline: 0;
+    box-shadow: unset;
+}
+
+input[type=file]:focus,
+input[type=checkbox]:focus,
+input[type=radio]:focus {
+    outline: unset !important;
+    outline-offset: unset !important;
+}
+
+/*************** Contact Information CSS ******************/
+
+.contact-info p {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.contact-info input[type="email"] {
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid #ced4da;
+    color: black;
+    letter-spacing: 1px;
+}
+
+/****************   Delivery  *******************/
+
+.Delivery-method p {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.Delivery-method .input-group-text {
+    background-color: white;
+    border-radius: unset;
+    padding: 8px;
+}
+
+.Delivery-method i {
+    font-size: 16px;
+    color: gray;
+}
+
+.Delivery-method span {
+    font-size: 14px;
+    color: gray;
+    letter-spacing: 1px;
+}
+
+#ship-radio {
+    border: unset;
+    border-top: 1px solid #ced4da;
+    border-right: 1px solid #ced4da;
+    border-left: 1px solid #ced4da;
+}
+
+.Delivery-method span img {
+    width: 20px;
+    height: 20px;
+}
+
+
+
+/************* Shipping information **************/
+.shipping-info {
+    display: none;
+}
+
+.name-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shipping-info .name-info input[type="text"],
+.billing-info .name-info input[type="text"],
+.billing-info .name-info input#id_email {
+    width: 49%;
+    padding: 8px;
+}
+
+.shipping-info p {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.shipping-info input[type="text"],
+.billing-info input[type="text"],
+input#id_email {
+    width: 100%;
+    padding: 8px;
+    border-radius: unset;
+    border: 1px solid #ced4da;
+    margin-bottom: 15px;
+}
+
+.form-check-label {
+    color: #8B8B8B;
+}
+
+.form-check-input[type=checkbox] {
+    border-radius: unset;
+}
+
+/******* Billing Form START *******/
+
+select#billing-country,
+select#billing-state {
+    width: 49%;
+    padding: 8px;
+    border-radius: unset;
+    border: 1px solid #ced4da;
+    margin-bottom: 15px;
+}
+
+select#countryId:focus,
+select#stateId:focus,
+select#cityId:focus {
+    border-color: unset !important;
+    box-shadow: none !important;
+}
+
+select#countryId,
+select#stateId,
+select#cityId {
+    border-radius: unset !important;
+    border: 1px solid #ced4da;
+    color: #6c757d !important;
+}
+
+select#stateId,
+select#cityId {
+    width: 49%;
+}
+
+/*************** Billing Form END ***************/
+
+/*************** Country Input Start ***************/
+select#country,
+select#state {
+    width: 49%;
+    padding: 8px;
+    border-radius: unset;
+    border: 1px solid #ced4da;
+    margin-bottom: 15px;
+}
+
+/*************** Country Input End ***************/
+
+
+/*************** shipping and back to cart Button START ***************/
+.submit-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button.shipping-button, .submit-buttons a {
+    background: black;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin: 5px;
+    border: 1px solid black;
+}
+
+/*************** shipping and back to cart Button END ***************/
+
+
+/*************** Shipping Payment Left Side Form START ***************/
+div#email-error {
+    float: right;
+    color: red;
+}
+
+div#email-error p {
+    font-size: 13px !important;
+    margin-top: -25px;
+    padding: 10px 0px;
+}
+
+/*************** Shipping Payment Left Side Form END ***************/
+
+/*************** Shipping Payment Right Side START ***************/
+.payment-product {
+    padding: 38px 40px;
+}
+
+.payment-product .prodcut-details {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.payment-product .prodcut-details img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border: 1px solid black;
+}
+
+.payment-product .prodcut-details p {
+    padding-left: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
+.product-price {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.product-price p {
+    float: right;
+}
+
+.shipping-products {
+    margin-bottom: 30px;
+}
+
+.all_buy_products {
+    height: 300px;
+    overflow: hidden;
+    /* overflow-y: scroll; */
+}
+.all_buy_products:hover{
+    overflow-y: scroll;
+}
+/* width */
+.all_buy_products::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  .all_buy_products::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  .all_buy_products::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  .all_buy_products::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+.payment-total {
+    margin-top: 10px;
+}
+
+.bill-detail {
+    padding: 20px 0px;
+}
+
+.payment-total .sub-total,
+.payment-total .cart-shipping,
+.payment-total .cart-tax,
+.payment-total .total-bill {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    letter-spacing: 0.8px;
+}
+
+.payment-total-bill {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px;
+    border-top: 2px solid #ced4da;
+    border-bottom: 2px solid #ced4da;
+    font-size: 18px;
+    letter-spacing: 1.2px;
+}
+
+/************ Shipping Payment Right Side END ***************/

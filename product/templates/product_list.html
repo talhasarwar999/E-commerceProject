@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Product| {{grand_category.name}}
+{% endblock title %}
+{% block content %}
+
+<div class="bread_cum">
+    <div class="container-fluid">
+        <div class="row bread_class">
+            <div class="col-md-12">
+                <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            {{grand_category.name}}
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-------------******************---------- Product Category Page START-------------******************---------->
+<div class="product_page py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 col-md-4 px-4 shop_left filter">
+
+                <div class="cross_icon">
+                    <i class="fas fa-times fa-2x"></i>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 product_left">
+                        <p>Shop by</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 product_leftHeader">
+                        <p class="leftHeader_title pb-2">SHOPPING OPTIONS</p>
+                        <p>Box Shape & Material</p>
+                        <!--******** Filter Rest Button Start ********-->
+                        <div class="reset_btn option-box" data-filter="all">
+                            <p>Reset Filter</p>
+                        </div>
+                        <!--******** Filter Rest Button End ********-->
+                    </div>
+                </div>
+
+                <!-------------******************---------- Option Box START-------------******************---------->
+                <div class="row d-flex flex-wrap">
+                    {% for box in boxes%}
+                        <div class="col-3 option-box" data-filter="box-{{box.id}}">
+                            <div class="shop-box">
+                                {% if box.icon %}
+                                    <img src="{{box.icon.url}}"/>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-------------******************---------- Option Box END-------------******************---------->
+
+                <!-------------******************---------- More Category Collaps START-------------******************---------->
+                <div class="row more_categories">
+                    {% for category in parent_categories %}
+                      
+                    <div class="faq">
+                        <div class="question">
+                            <h3>{{category.name}}</h3>
+                            <svg width="15" height="10" viewBox="0 0 42 25">
+                                <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="answer">
+                            <ul>
+                                {% for sub in category.get_child_categories %}
+                                <li data-filter="{{sub.id}}__">{{sub.name}}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+            <!-------------******************---------- More Category Collaps END-------------******************---------->
+            <div class="col-xl-9 col-md-8 px-4">
+                <div class="row">
+
+                    <!---- Mobile Filters  START ---->
+                    <div class="filter_icon">
+                        <i class="fas fa-sliders-h" arial-hidden="true"></i>
+                        <p>Filters</p>
+                    </div>
+                    <!---- Mobile Filters  END ---->
+
+                    <p class="category_title">{{grand_category.name}}</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 py-5 product_rightHeader">
+                        <div class="left_options">
+                            <i class="fas fa-th grid active" arial-hidden="true"></i>
+                            <i class="fas fa-bars list_icon" arial-hidden="true"></i>
+                        </div>
+                        <div class="right_option">
+                            <label for="item_filter" class="item_filter">Sort By</label>
+                            <select class="price-sorting type-regular" name="price-sorting">
+                                <option selected disabled>Default</option>
+                                <option value="l2h">Price-Low to High</option>
+                                <option value="h2l">Price-High to Low</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-------------******************---------- Products START-------------******************---------->
+                <div class="row ltg">
+                      
+                    {% for product in objects %}
+                        <div class="col-lg-3 col-md-4 col-6 product {{product.child_category.id}}__ {% for box in product.box.all %} box-{{box.id}} {% endfor %} "
+                            data-price="{{product.price}}">
+                            <div class="card card-block">
+                                <a href="{% url 'product-detail' product.grand_category.slug product.slug %}">
+                                    <img src=" {% if product.thumbnail  %} {{product.thumbnail.url}} {% endif %}">
+                                </a>
+
+                                <div class="product_cart add-remove-to-cart" product_id='{{product.id}}'>
+                                    <i class="fa fa-shopping-cart " arial-hidden="true"></i>
+                                </div>
+                                <h5 class="card-title">{{product.title}}</h5>
+                                <p class="card-text price">AED {{product.price}}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+
+
+                </div>
+                <!-------------******************---------- Products END-------------******************---------->
+
+                <!-------------******************---------- Pagination Start-------------******************---------->
+                {% include "pagination.html" %}
+                <!-------------******************---------- Pagination END-------------******************---------->
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-------------******************---------- Product Categroy Page End -------------******************---------->
+
+<!-------------******************---------- catergories Section -----------******************---------->
+
+
+{% endblock content %}

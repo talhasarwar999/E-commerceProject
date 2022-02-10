@@ -1,0 +1,556 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="{% static 'assets/images/favicon-32x32.png' %}" type="image/gif">
+
+  <title>Dolce E Fiore</title>
+
+  <!-- ////// Google Fonts ////// -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,300italic" rel="stylesheet"
+    type="text/css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Serif" />
+
+  <!-- ////// font awesome ////// -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+
+  <!-- ////// Bootstrap CSS ////// -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- ////// owl carousal ////// -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
+
+  <link rel="stylesheet" href="{% static 'assets/css/index.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/media_query.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/alert.css' %}" />
+
+</head>
+
+<body>
+  <!-----******************----- Home Page Header START -----******************----->
+
+  <!-----******************----- Manu Bar START -----******************----->
+  <div class="container-fluid header">
+    <div class="row">
+      <div class="col-md-2 col-3 hamburger_home">
+        <div class="menu_btn">
+          <div class="bars burger"></div>
+        </div>
+        <img class="cross" src="{% static 'assets/images/cross.png' %}" />
+      </div>
+      <div class="col-md-8 col-6">
+        <div class="logo">
+          <a href="{% url 'home' %}">
+            <img src="{%  if home_page_contents.logo %}
+            {{home_page_contents.logo.url}}
+            {% endif %}" />
+          </a>
+        </div>
+      </div>
+
+
+       <ul class="navbar_user">
+                <li>
+                  <div class="search-box">
+                    <i class="fa fa-search" onclick="openSearch()" arial-hidden="true"></i>
+                  </div>
+                </li>
+                <li class="checkout">
+                  <a href="{% url 'cart-list' %}">
+                    <i class="fa fa-shopping-cart" arial-hidden="true"></i>
+                    <span class="checkout_items-super">
+                      {% if cartItem.count != 0  %}
+                        <span id="checkout_items" class="checkout_items">
+                          {{cartItem.count}}
+                        </span>
+                      {% endif %}
+                      <!-- <span id="guest_checkout_items" class="checkout_items">
+                        0
+                      </span> -->
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <div class="user_account">
+                    <i class="fas fa-user"></i>
+                    <!-- {% if  not '___test' in user.username %}
+                    {{user.username}}
+                    {% endif %} -->
+
+                  </div>
+                </li>
+              </ul>
+    </div>
+  </div>
+  <!-----******************----- Manu Bar END -----******************----->
+
+  <!-----******************----- Header Slider START -----******************----->
+  <div id="carouselIndicators1" class="carousel slide banner-carousel" data-bs-ride="carousel" data-bs-pause="false">
+    <div class="carousel-inner">
+      {% for slider in home_page_sliders %}
+
+      <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
+        <img src="{{slider.slider_image.url}}" class="d-block w-100 croppedImg" alt="banner" />
+      </div>
+
+      {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators1" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators1" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-----******************----- Header Slider END -----******************----->
+
+  <!-----******************----- Hamberger Menu START -----******************----->
+  <div class="toggle">
+    <ul class="menu">
+      <li><a href="{% url 'home' %}">Home</a></li>
+      {% for  nav in nav_links %}
+      <li><a href="{% url 'product-list' nav.category.slug %}">{{nav.nav_title}}</a></li>
+      {% endfor %}
+      <li><a href="{% url 'shop' %}">Shop</a></li>
+      <li><a href="{% url 'blog-list' %}">Blog</a></li>
+      <li><a href="{% url 'cart-list' %}">Cart</a></li>
+      <li><a href="{% url 'contact-us' %}">CONTACT</a></li>
+    </ul>
+  </div>
+  <!-----******************----- Hamberger Menu END -----******************----->
+
+  <!-----******************----- Home Page Header END -----******************----->
+  <div id="shaded">
+
+    <!-----******************----- Best Seller START -----******************----->
+
+    <!---- Best Seller Decription START ---->
+    <div class="container">
+      <div class="row text py-4">
+        <div class="col-md-6 left_text">
+          <p class="heading mb-0" style="text-align: end;font-family: 'Allura', cursive;text-transform: capitalize;">
+            {{home_page_contents.bestseller_product_title}}
+          </p>
+          <p class="sub_heading mb-0" style="text-align: end;font-family: droid serif !important; font-style: italic;">
+            {{home_page_contents.bestseller_product_title_message}}
+          </p>
+        </div>
+        <div class="col-md-6 right_text">
+          <p class="details_text">
+            {{home_page_contents.bestseller_product_title_description}}
+          </p>
+        </div>
+      </div>
+    </div>
+    <!---- Best Seller Decription END ---->
+
+    <!-----******************----- Best Seller owl carousal START -----******************----->
+    <section class="testimonials">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="customers-testimonials">
+              <div class="featured-products owl-carousel owl-theme">
+                <!---- Slide 1 START---->
+                {% for product in products %}
+                {% if product.is_bestSeller == True %}
+
+                <div class="item">
+                  <div class="shadow-effect">
+                    <!-- <img class="img-responsive" src="./assets/images/brigitte-tohm-0utRJ1mZoZg-unsplash.jpg" alt="" /> -->
+                    <a href="{% url 'product-detail' product.grand_category.slug product.slug %}">
+
+                      <img class="img-responsive" src=" {% if product.thumbnail %} {{product.thumbnail.url}} {% endif %}" alt="" />
+                    </a>
+                    <div class="item-details">
+                      <h5>{{product.title}}</h5>
+                      <p>
+                        AED {{product.price}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {% endif %}
+                {% endfor %}
+                <!---- Slide 1 END---->
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-----******************----- Best Seller owl carousal END -----******************----->
+
+    <!-----******************----- Best Seller END -----******************----->
+
+    <!-------------******************---------- catergories Section START -------------******************---------->
+  <div class="container-fluid">
+    <div class="row">
+      <section class="boxes gx-0">
+        {% for category in categories  %}
+        <a href="{% url 'product-list' category.slug %}">
+        <div class="box">
+            
+            {% if category.icon.url != '' %}              
+              <img src="{{category.icon.url}}" />
+              <p>{{category.name}}</p>
+            {% endif %}
+          
+        </div>
+      </a>
+
+        {% endfor %}
+      </section>
+    </div>
+  </div>
+
+  <!-------------******************---------- catergories Section END -------------******************---------->
+
+    <!-----******************----- Banner Image Section START-----******************----->
+    <div class="container-fluid px-0 banner">
+      <hr style="background-color: #322c1054;
+      height: 2px;">
+      <div class="offers-img">
+        {% if home_page_contents.banner_Image %}
+        <img src="{{home_page_contents.banner_Image.url}}">
+        {% endif %}
+      </div>
+      <hr style="background-color: #322c1054;
+        height: 2px;">
+    </div>
+    <!-----******************----- Banner Image Section END -----******************----->
+
+
+
+    <!-----******************----- Featured Product START -----******************----->
+
+    <!---- Featured Product Decription START ---->
+    <div class="container">
+      <div class="row text py-4">
+        <div class="col-md-6 left_text">
+          <p class="heading mb-0" style="text-align: end;font-family: 'Allura', cursive;text-transform: capitalize;">
+            {{home_page_contents.featured_product_title}}</p>
+          <p class="sub_heading mb-0" style="text-align: end;font-family: droid serif !important; font-style: italic;">
+            {{home_page_contents.featured_product_title_message}} </p>
+        </div>
+        <div class="col-md-6 right_text">
+          <p class="details_text">
+            {{home_page_contents.featured_product_title_description}}</p>
+        </div>
+      </div>
+    </div>
+    <!---- Featured Product Decription END ---->
+
+
+    <!-----******************----- Featured Product Owl Carousal START -----******************----->
+    <section class="testimonials">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="customers-testimonials">
+              <div class="featured-products owl-carousel owl-theme">
+
+                {% for product in products %}
+
+                {% if product.is_featured == True %}
+                <!--TESTIMONIAL 2 -->
+                <div class="item">
+                  <div class="shadow-effect">
+                    <a href="{% url 'product-detail' product.grand_category.slug product.slug  %}">
+                      <img class="img-responsive" src="{% if product.thumbnail %} {{product.thumbnail.url}} {% endif %}" alt="" />
+                    </a>
+                    <div class="item-details">
+                      <h5>{{product.title}}</h5>
+                      <p>
+                        AED {{product.price}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!--END OF TESTIMONIAL 1 -->
+                {% endif %}
+                {% endfor %}
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-----******************----- Featured Product Owl Carousal END -----******************----->
+
+    <!-----******************----- Featured Product END -----******************----->
+
+
+
+    <!-----******************----- FOOTER Section START -----******************----->
+
+    <div class="container-fluid">
+      <div class="row social_icons">
+        <div class="col-md-12">
+          <div class="container">
+            <div class="row py-2">
+              <div class="col-md-7 social_text">
+                <p>{{footer.footer_title}}</p>
+              </div>
+              <div class="col-md-5 right_social">
+                {% if footer.facebook_link %}
+                <a href="{{footer.facebook_link}}" target="_blank">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                {% endif %}
+                {% if footer.twitter_link %}
+                <a href="{{footer.twitter_link}}" target="_blank">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                {% endif %}
+                {% if footer.instagram_link %}
+                <a href="{{footer.instagram_link}}" target="_blank">
+                  <!-- <i class="fab fa-instagram"></i> -->
+                  <i class="fab fa-instagram-square"></i>
+                </a>
+                {% endif %}
+                {% if footer.linkedin_link %}
+                <a href="{{footer.linkedin_link}}" target="_blank">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row social_list">
+        <div class="col-md-12">
+          <div class="container">
+            <div class="row list_sides py-4">
+              <div class="col-md-3 col-6 lists">
+                <h6>Information / Useful Links</h6>
+                <ul>
+                  <li><a href="{% url 'home' %}">Home</a></li>
+                  <li> <a href="{% url 'shop' %}">Shop</a></li>
+                  <li><a href="{% url 'contact-us' %}">Contact Us</a></li>
+                  <li><a href="{% url 'blog-list' %}">Blogs</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3 col-6 lists">
+                <h6 class="my_ac">MY ACCOUNT</h6>
+                <ul>
+                  <li class="user_account"><i style="color: #000000;font-style: normal;
+                    font-size: 14px;">Login</i></li>
+                    <li class="user_account"><i style="color: #000000;font-style: normal;
+                      font-size: 14px;">Register</i></li>
+                  <li><a href="{% url 'cart-list' %}">Cart</a></li>
+                  <li><a href="{% url 'payment-detail'  %}">Checkout</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3 col-6 lists help">
+                <h6>HELP</h6>
+                <ul>
+                  <li><a href="{% url 'faq' %}" target="_blank">FAQ's</a></li>
+                  <li><a href="{% url 'contact-us' %}">Contact Us</a></li>
+                  <li><a href="{% url 'privacy-policy' %}" target="_blank">Privacy Policy</a></li>
+                  <li><a href="{% url 'terms-codition' %}" target="_blank">Terms and Conditions</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3 col-12 lists contact-info">
+                <h6>CONTACT INFO</h6>
+                <ul>
+                  <li class="address">
+                    <i class="fas fa-globe-europe"></i>
+                    <span>{{footer.office_address}}</span>
+                  </li>
+                  <li class="phone"><i class="fas fa-phone-alt"></i>
+                    <span><a href="tel:{{footer.phone_no}}">{{footer.phone_no}}</a></span>
+                  </li>
+                  <li class="email">
+                    <i class="fas fa-envelope"></i>
+                    <span><a href="mailto:{{footer.email}}">{{footer.email}}</a></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row footer_last">
+        <div class="col-md-12">
+          <div class="container">
+            <div class="row py-2">
+              <div class="col-md-6 footer_left">
+                <p>Copyright &copy; 2021 <a href="#">Dolce-e-Fiore </a>All Rights Reserved. | <a href="{% url 'privacy-policy' %}" target="_blank">Privacy
+                    Policy</a> | <a href="{% url 'terms-codition' %}" target="_blank">Terms and Conditions</a></p>
+              </div>
+              <div class="col-md-6 footer_right">
+                <a href="#">
+                  <i class="fab fa-cc-visa"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-cc-paypal"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-cc-amazon-pay"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-cc-amazon-pay"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-----******************----- FOOTER Section END -----******************----->
+
+  </div>
+
+  {% include "login_register.html" %}
+
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/23b1f56e60.js"></script>
+  <!-- // owl carousel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+
+  <script>
+    $('#login-success-text').hide()
+    $('#registeration-success-text').hide()
+    $('#product-search-button').click(function () {
+
+      var product_value = $('#product-search').val()
+      if (product_value != '') {
+        window.location.replace(`/shop/?title=${product_value}`);
+      }
+
+    })
+  </script>
+  <script>
+    // Login form Open
+    $(".home_user_account i").click(function (e) {
+      $(".my_account").css("display", "flex"),
+        e.preventDefault();
+    });
+
+    // Login form Close
+    $(".fm-dialog-close").click(function (e) {
+      $(".my_account").hide(),
+        e.preventDefault();
+    });
+  </script>
+
+  <script>
+    $("#register-form").submit(function (e) {
+      e.preventDefault();
+      var serializedData = $(this).serialize();
+      $.ajax({
+        type: 'POST',
+        url: "{% url 'register' %}",
+        data: serializedData,
+        success: function (obj) {
+          $(`#register-error-email`).html('')
+          $(`#register-error-password2`).html('')
+          $("#register-form").trigger('reset');
+          $('#sign_in_tab').click()
+
+          $('#registeration-success-text').show()
+        },
+        error: function (obj) {
+
+          var field = obj['responseJSON']['field']
+          var message = obj['responseJSON']['message']
+          console.log(obj)
+          Object.keys(obj['responseJSON']).forEach(function (key) {
+            $(`#register-error-email`).html('')
+            $(`#register-error-password2`).html('')
+          });
+          Object.keys(obj['responseJSON']).forEach(function (key) {
+            var htmlData = ''
+            console.log(key, obj['responseJSON'][key])
+            for (let index = 0; index < obj['responseJSON'][key].length; index++) {
+              var errorMessage = obj['responseJSON'][key][index];
+              htmlData += `<ul><li>${errorMessage}</li></ul>`
+            }
+            $(`#register-error-${key}`).html(htmlData)
+
+          });
+
+        }
+      })
+    })
+    $('#login-success-text').hide()
+    $('#registeration-success-text').hide()
+
+    function sleepFor(sleepDuration) {
+      var now = new Date().getTime();
+      while (new Date().getTime() < now + sleepDuration) {
+        /* Do nothing */
+      }
+    }
+    $("#login-form").submit(function (e) {
+      e.preventDefault();
+      var serializedData = $(this).serialize();
+      $.ajax({
+        type: 'POST',
+        url: "{% url 'login' %}",
+        data: serializedData,
+        success: function (response) {
+          $('#registeration-success-text').hide()
+          $('#login-email-error-text').html('')
+          $('#login-password-error-text').html('')
+          $('#login-success-text').show()
+
+          setTimeout(function () {
+            location.reload('')
+          }, 1200)
+
+        },
+        error: function (response) {
+          var field = response['responseJSON']['field']
+          var message = response['responseJSON']['message']
+          console.log(field, message)
+          if (field == 'password') {
+            $('#login-password-error-text').html('')
+            $('#login-password-error-text').show()
+            $('#login-password-error-text').html(message)
+            $('#login-email-error-text').hide('')
+          }
+          if (field == 'email') {
+            $('#login-email-error-text').html('')
+            $('#login-email-error-text').show()
+            $('#login-email-error-text').html(message)
+            $('#login-password-error-text').html('')
+            $('#login-password-error-text').hide()
+          }
+        }
+      })
+    });
+  </script>
+
+</body>
+
+</html>

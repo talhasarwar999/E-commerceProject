@@ -1,0 +1,272 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Payment
+{% endblock title %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'assets/css/payment.css' %}" />
+
+{% endblock css %}
+
+{% block content %}
+
+<div class="bread_cum">
+    <div class="container-fluid">
+        <div class="row bread_class">
+            <div class="col-md-12">
+                <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Payment
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5 payment">
+    <div class="row main-row">
+        <div class="col-md-7 col-12 shipping-form">
+            <!-- ****** Contact Information -->
+            <form method="POST" id="p-form">
+                {% csrf_token %}
+                <div class="contact-info">
+                    <p>Contact information</p>
+                </div>
+
+                <!----------****************-------- Billing Address START --------************---------->
+                <div class="billing-info mb-2">
+                    <input type="hidden" name="address_type" value="billing">
+                    <div class="name-info">
+                        <input type="text" placeholder="First Name" required name="billing_form-first_name"
+                            id="b_f_name" />
+                        <input type="text" placeholder="Last Name" required name="billing_form-last_name"
+                            id="b_l_name" />
+                    </div>
+                    <div class="name-info">
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                        name="billing_form-phone"
+                        placeholder="Phone"
+                        pattern=".{11,15}"
+                        title="11 to 15 characters"
+                        required
+                        id="b_phone"
+                        >                        
+                        <input type="email" name="payment_form-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required id="id_email" placeholder="Email" />
+                    </div>
+                    <div id="email-error"></div>
+                    <input type="text" placeholder="Address" required name="billing_form-address" id="b_address" />
+                    <select name="billing_form-country" id="countryId" required class="form-control countries mb-3">
+                        <option value="">Select Country</option>
+                    </select>
+
+
+                    <div class="name-info mb-3">
+                        <select id="stateId" name="billing_form-state" required class="states form-control mr-2">
+                            <option value="">Select State</option>
+                        </select>
+
+                        <select id="cityId" name="billing_form-city" required class="cities ml-2 form-control">
+                            <option value="">Select City</option>
+                        </select>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="billing-flag" id="billing-check" />
+                        <label class="form-check-label" for="billing-check">
+                            If the address is change from shipping address then other wise the form empty is accepted
+                        </label>
+                    </div>
+
+                </div>
+                <!----------**************-------- Billing Address END --------************---------->
+
+                <!----------************-------- Shipping Address START --------************---------->
+                <div class="shipping-info mt-3 mb-3">
+                    <input type="hidden" name="address_type" value="shipping">
+                    <p>Shipping address</p>
+                    <div class="name-info">
+                        <input type="text" placeholder="First Name" name="shipping_form-first_name" />
+                        <input type="text" placeholder="Last Name" name="shipping_form-last_name" />
+                    </div>
+                    <input type="text" placeholder="Address" name="shipping_form-address" />
+                    <!-- <select name="shipping_form-country" id="countryId" class="form-control countries mb-3">
+                        <option value="">Select Country</option>
+                    </select> -->
+                    <input type="text" placeholder="Enter Country" name="shipping_form-country" id="shipping_form-country" class="form-control countries_s" />
+
+
+                    <div class="name-info">
+                        <input type="text" placeholder="Enter State" id="shipping_form-state" name="shipping_form-state" class="states_s form-control mr-2" />
+                        <input type="text" placeholder="Enter City" name="shipping_form-city" class="cities_s ml-2 form-control" />
+                        <!-- <select id="stateId" name="shipping_form-state" class="states form-control mr-2">
+                            <option value="">Select State</option>
+                        </select>
+
+                        <select id="cityId" name="shipping_form-city" class="cities ml-2 form-control">
+                            <option value="">Select City</option>
+                        </select> -->
+                    </div>
+
+
+                    <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                    name="shipping_form-phone"
+                    placeholder="Phone"
+                    pattern=".{11,15}"
+                    title="11 to 15 characters"
+                    id="b_phone"
+                    >    
+
+                </div>
+                <!----------*************-------- Shipping Address END --------************---------->
+
+                <!----------***********-------- Delivery method START --------***********---------->
+                <div class="Delivery-method mb-3">
+                    <p>Delivery method</p>
+                    <div id="ship-radio" class="input-group-text">
+                        <input class="form-check-input mt-0" type="radio" name="payment_form-delivery_methods" id="ship-select" 
+                         value="ship" />
+                        <span><i class="fas fa-shipping-fast ms-3"></i></span>
+                        <span class="ms-3">Ship</span>
+                    </div>
+                    <div class="input-group-text">
+                        <input class="form-check-input mt-0" type="radio" name="payment_form-delivery_methods" id="pickup-select" True
+                        checked value="pickup" />
+                        <span><i class="fas fa-store-alt ms-3"></i></span>
+                        <span class="ms-3">Pickup</span>
+                    </div>
+                </div>
+                <!----------************-------- Delivery method END --------***********---------->
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck" />
+                    <label class="form-check-label" for="gridCheck">
+                        Save this information for the next time
+                    </label>
+                </div>
+                <div class="submit-buttons mt-5 mb-md-0 mb-5">
+                    <a href="{% url 'cart-list' %}" class="return-button">
+                     Return to cart
+                </a>
+                    <button type="submit" class="shipping-button"> Confirm order</button>
+                </div>
+                <!-- <div id="alert-box"></div> -->
+            </form>
+
+        </div>
+
+        <!-------------******************---------- Contact Us Section END -------------******************---------->
+
+        <!-------------******************---------- Products and Payment Right Side Section START -------------******************---------->
+        <div class="col-md-5 clo-12 payment-product">
+
+            <div class="all_buy_products">
+            {% for object in objects  %}
+
+            <div class="row shipping-products">
+                <div class="col-9 my-auto prodcut-details">
+                    <img src="{{object.product.thumbnail.url}}" />
+                    <p>{{object.product.title}}</p>
+                </div>
+                <div class="col-3 my-auto product-price">
+                    <p>AED {{object.get_price}}</p>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+
+            <div class="row">
+                <div class="col-12 payment-total">
+                    <div class="bill-detail">
+                        <div class="sub-total">
+                            <p>Subtotal</p>
+                            <p>AED {{order.total_price_wo_tax_order_overview}}</p>
+                        </div>
+                        <div class="cart-shipping">
+                            <p>Shipping</p>
+                            <p>AED 20.0</p>
+                        </div>
+                        <div class="cart-tax">
+                            <p>Tax</p>
+                            <p>AED {{order.tax}}</p>
+                        </div>
+                        <div class="total-bill">
+                            <p>Total</p>
+                            <p>AED <span id='total-bill-value'> {{order.total_price_w_tax_order_overview}} </span></p>
+                        </div>
+                    </div>
+                    <div class="payment-total-bill">
+                        <p>Total</p>
+                        <p>AED <span id='total-bill-value-1'> {{order.total_price_w_tax_order_overview}}</span></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-------------******************---------- Products and Payment Right Side Section END -------------******************---------->
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
+
+
+{% block script %}
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/23b1f56e60.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="//geodata.solutions/includes/countrystatecity.js"></script>
+
+<script>
+    const csrf = document.getElementsByName("csrfmiddlewaretoken");
+  </script>
+<script>
+    $('.cart-shipping').hide()
+
+    $('#ship-select').click(function name() {
+        if($(this).attr("value")=="ship"){
+            $('.cart-shipping').show()
+            var value = $('#total-bill-value').html()
+            var val = parseFloat(value)
+            val+=20.0;
+            console.log($('#total-bill-value').attr('data'))
+            if ($('#total-bill-value').attr('data') == undefined) {
+                console.log(val)
+                $('#total-bill-value').html(val)            
+                $('#total-bill-value-1').html(val)                 
+            }
+           
+            $('#total-bill-value').attr('data','done')
+
+        }
+    })
+    $('#pickup-select').click(function name() {
+            $('.cart-shipping').hide()
+           if ($('#total-bill-value').attr('data') == 'done') {
+            var value = $('#total-bill-value').html()
+            var val = parseFloat(value)
+            val-=20.0;
+            console.log(val)
+
+            $('#total-bill-value').html(val)    
+            $('#total-bill-value-1').html(val)            
+            $('#total-bill-value').removeAttr('data')
+           } 
+    })    
+
+
+</script>
+
+{% endblock script %}

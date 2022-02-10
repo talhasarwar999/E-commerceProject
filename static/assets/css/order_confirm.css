@@ -1,0 +1,256 @@
+/*  */
+.confirm_order {
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.thank_you {
+    margin: 20px 0px;
+}
+
+.thank_you h1 {
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.order_items {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 35px;
+}
+
+.order_items .item {
+    font-size: 20px;
+    font-weight: 600;
+    padding-right: 10px;
+}
+
+.order_items .price {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.order_banner {
+    margin: 30px 0px;
+    background: linear-gradient(#666563, rgb(0, 0, 0));
+    padding: 35px 35px;
+    border-radius: 10px;
+}
+
+.order_banner h1 {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 40px;
+    letter-spacing: 1px;
+}
+
+.order_banner h3 {
+    color: #fff;
+    font-size: 25px;
+}
+
+.order_details {
+    padding: 0px 35px;
+}
+
+.order_details .order_no,
+.order_details .order_date {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.order_details h4 {
+    font-size: 20px;
+    font-weight: 600;
+    padding-right: 10px;
+}
+
+.order_msg {
+    padding: 20px 35px;
+}
+
+.order_msg h6 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.order_msg a {
+    text-decoration: none;
+    color: rgb(78, 128, 204);
+}
+
+
+/*=============== Order Confirmation START For Ipad Pro ===============*/
+@media screen and (max-width:1024px) and (min-width: 992px) {
+
+    .confirm_order {
+        margin-top: 35px;
+        margin-bottom: 45px;
+    }
+
+    .thank_you h1 {
+        font-size: 25px;
+    }
+
+    .order_banner {
+        margin: 20px 0px;
+        padding: 30px 25px;
+    }
+
+    .order_banner h1 {
+        font-size: 24px;
+        line-height: 27px;
+        letter-spacing: 0.7px;
+    }
+
+    .order_banner h3 {
+        font-size: 19px;
+        margin-bottom: 0px;
+    }
+
+    .order_items {
+        padding: 5px 25px;
+    }
+
+    .order_items .item,
+    .order_items .price,
+    .order_details h4 {
+        font-size: 17px;
+    }
+
+    .order_details {
+        padding: 0px 25px;
+    }
+
+    .order_msg h6 {
+        font-size: 16px;
+    }
+
+    .order_msg {
+        padding: 15px 25px;
+    }
+}
+
+/*=============== Order Confirmation END For Ipad Pro ===============*/
+
+/*=============== Order Confirmation START For Ipad ===============*/
+@media screen and (max-width:991px) and (min-width: 768px) {
+    .confirm_order {
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+
+    .thank_you {
+        margin: 15px 0px;
+    }
+
+    .thank_you h1 {
+        font-size: 20px;
+    }
+
+    .order_banner {
+        margin: 20px 0px;
+        padding: 20px 25px;
+    }
+
+    .order_banner h1 {
+        font-size: 16px;
+        line-height: 27px;
+        letter-spacing: 0.7px;
+    }
+
+    .order_banner h3 {
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+
+    .order_items {
+        padding: 5px 25px;
+    }
+
+    .order_items .item,
+    .order_items .price,
+    .order_details h4 {
+        font-size: 15px;
+    }
+
+    .order_details {
+        padding: 0px 25px;
+    }
+
+    .order_msg h6 {
+        font-size: 15px;
+    }
+
+    .order_msg {
+        padding: 15px 25px;
+    }
+}
+
+/*=============== Order Confirmation END For Ipad ===============*/
+
+/*=============== Order Confirmation START For Mobile Devices ===============*/
+
+@media screen and (max-width: 767px) {
+
+    .confirm_order {
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+
+    .thank_you {
+        margin: 15px 0px;
+    }
+
+    .thank_you h1 {
+        font-size: 25px;
+    }
+
+    .order_banner {
+        margin: 20px 0px;
+        padding: 30px 25px;
+    }
+
+    .order_banner h1 {
+        color: #fff;
+        font-size: 18px;
+        line-height: 25px;
+        letter-spacing: 0.7px;
+    }
+
+    .order_banner h3 {
+        font-size: 15px;
+        margin-bottom: 0px;
+    }
+
+    .order_items {
+        padding: 5px 25px;
+    }
+
+    .order_items .item,
+    .order_items .price,
+    .order_details h4 {
+        font-size: 15px;
+    }
+
+    .order_details {
+        padding: 0px 25px;
+    }
+
+    .order_msg h6 {
+        font-size: 14px;
+    }
+
+    .order_msg {
+        padding: 15px 25px;
+    }
+
+}
+
+/*=============== Order Confirmation END For Mobile Devices ===============*/

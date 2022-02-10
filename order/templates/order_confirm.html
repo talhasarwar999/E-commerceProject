@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Thank you
+{% endblock title %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'assets/css/order_confirm.css' %}" />  
+{% endblock css %}
+
+{% block content %}
+
+    <div class="container confirm_order">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="thank_you">
+                    <h1>Thank You!</h1>
+                </div>
+
+                <div class="order_banner">
+                    <h1>
+                        Your Order was Placed Successfully
+                    </h1>
+                    <h3>
+                        Check your email for your order confirmation.
+                    </h3>
+                </div>
+                
+                                
+                    <div class="order_items">
+                        <div class="item">{{order.count}} item</div>
+                        <div class="price">AED {{total}}</div>
+                    </div>
+
+                <div class="order_details">
+                    <div class="order_no">
+                        <h4>Your Order:</h4>
+                        <h4> DOL0014635</h4>
+                    </div>
+                    <div class="order_date">
+                        <h4>Order Date:</h4>
+                        <h4>{{now}}</h4> 
+                    </div>
+                </div>
+                
+                {% if user.is_authenticated %}                    
+                    <div class="order_msg">
+                        <h6>we have sent you the order confirmation detail to <a href="#">{{user.email}}</a></h6>
+                    </div>
+                {% endif %}
+
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+{% endblock content %}
+ 

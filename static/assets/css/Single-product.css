@@ -1,0 +1,460 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a,
+a:hover {
+  color: #212529;
+}
+
+/************ first-container *****************/
+
+.first-container {
+  margin-top: 100px;
+}
+
+/* ********* OWL Carousal CSS *****************/
+
+.first-container {
+  margin-top: 100px;
+  min-height: calc(100vh - 620px);
+}
+
+.owl-carousel .owl-nav.disabled {
+  display: block !important;
+}
+
+button.owl-prev {
+  position: absolute;
+  bottom: 5px;
+  left: 42px;
+  font-size: 50px !important;
+}
+
+button.owl-next {
+  position: absolute;
+  bottom: 5px;
+  right: 42px;
+  font-size: 50px !important;
+}
+
+.owl-theme .owl-nav [class*=owl-]:hover {
+  background: none;
+  color: #00000075;
+  text-decoration: none;
+}
+
+#small_slides.owl-carousel .owl-item img {
+  cursor: pointer;
+  width: 112px;
+  height: 80px;
+  object-fit: cover;
+  border: 1px solid black;
+}
+
+#small_slides {
+  padding: 0px 80px;
+}
+
+#small_slides .owl-stage-outer .owl-stage {
+  margin: auto;
+}
+
+.full-screen {
+  margin-bottom: 20px;
+}
+
+.full-screen img {
+  display: block;
+  width: 475px;
+  height: 400px;
+  object-fit: cover;
+  border: 1px solid black;
+  margin: auto;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 15px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.single-product-slider .owl-nav [class*="owl-"]:hover {
+  background: none;
+  color: unset;
+  text-decoration: none;
+}
+
+/******* Media query for mobile **********/
+@media (min-width: 1025px) and (max-width: 1400px) {
+  .first-container {
+    margin-top: 60px;
+  }
+
+  #small_slides.owl-carousel .owl-item img {
+    width: 110px;
+    height: 70px;
+  }
+
+  button.owl-prev {
+    bottom: 0px !important;
+    left: 5px;
+  }
+
+  button.owl-next {
+    bottom: 0px !important;
+    right: 5px;
+  }
+}
+
+/******* Media query for Ipad pro **********/
+@media (min-width: 992px) and (max-width: 1024px) {
+  .first-container {
+    margin-top: 10px;
+  }
+
+  .full-screen img {
+    width: 335px;
+    height: 275px;
+  }
+
+  #small_slides.owl-carousel .owl-item img {
+    width: 75px;
+    height: 55px;
+  }
+
+  #small_slides button.owl-next {
+    top: -40% !important;
+    right: 30px !important;
+  }
+
+  #small_slides button.owl-prev {
+    top: -40% !important;
+    left: 30px !important;
+  }
+
+  .product-description {
+    width: 100% !important;
+  }
+
+  #small_slides {
+    padding: 0px 60px;
+  }
+}
+
+/******* Media query for Ipad **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  .first-container {
+    margin-top: 30px;
+  }
+
+  .full-screen img {
+    width: 325px;
+    height: 270px;
+  }
+
+  #small_slides.owl-carousel .owl-item img {
+    width: 100px;
+    height: 70px;
+  }
+
+  #small_slides {
+    padding: 0px 5px;
+  }
+
+  #small_slides button.owl-next {
+    top: -20% !important;
+    right: 10px !important;
+  }
+
+  #small_slides button.owl-prev {
+    top: -20% !important;
+    left: 10px !important;
+  }
+
+  .product-description {
+    width: 100% !important;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .first-container {
+    margin-top: 20px;
+  }
+
+  .full-screen img {
+    width: 345px;
+    height: 300px;
+  }
+
+  #small_slides.owl-carousel .owl-item img {
+    width: 110px;
+    height: 80px;
+  }
+
+  #small_slides button.owl-next {
+    top: -10% !important;
+    right: 0px !important;
+  }
+
+  #small_slides button.owl-prev {
+    top: -10% !important;
+    left: 0px !important;
+  }
+
+  .product-description {
+    width: 100% !important;
+  }
+
+  #small_slides {
+    padding: 0px 0px;
+  }
+}
+
+/* ***************** Product Description CSS *********************/
+
+.main-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  color: black;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.sub-title {
+  font-family: "Poppins", sans-serif;
+  color: gray;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.product-name-AED-180 {
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: black;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.product-sub-tilte {
+  margin-top: -15px !important;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: grey;
+}
+
+.break-line {
+  border: 0.7px solid #322c1054;
+}
+
+.box-size-heading {
+  font-size: 19px;
+  color: black;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 7px;
+  text-transform: capitalize;
+}
+
+.nav {
+  margin-bottom: 19px;
+}
+
+.nav-link {
+  display: block;
+  padding: 0px !important;
+  padding-right: 30px !important;
+  color: unset;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+}
+
+.nav-link:hover {
+  color: unset;
+}
+
+.box-size-tabs a {
+  color: gray;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.box-size-tabs a.active {
+  color: #212529 !important;
+}
+
+.box-size-tabs a:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px !important;
+}
+
+ul.list-unstyled.d-flex.justify.content-center.align-items-center {
+  margin-bottom: 0px;
+}
+
+.Quantity {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: gray;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 22px 0px;
+}
+
+.Quantity p {
+  margin-bottom: 0px;
+}
+
+.quantity-box ul li {
+  font-size: 12px;
+  padding: 8px 15px;
+  cursor: pointer;
+  border: 1px solid black !important;
+}
+
+.quantity-box ul li:hover {
+  background-color: black;
+  color: white;
+}
+
+li.num-li {
+  width: 25%;
+  padding: 0px !important;
+}
+
+li.num-li:hover {
+  background-color: unset !important;
+}
+
+li.num-li input {
+  font-size: 14px;
+  padding: 6.4px;
+  text-align: center;
+  width: 100%;
+  color: black;
+  border-width: 0px;
+}
+
+li.num-li input:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+
+.add-to-cart-button {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  margin: 0px 4px;
+  margin-bottom: 6px;
+  margin-left: 79px;
+}
+
+.product-code {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: black;
+  font-weight: 600;
+}
+
+.product-description-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: black;
+  font-weight: 600;
+}
+
+.product-description {
+  font-family: "Poppins", sans-serif;
+  color: gray;
+  font-size: 16px;
+  margin-bottom: 0px !important;
+  width: 100%;
+  text-align: justify;
+}
+
+
+
+/* /***************************** */
+
+/************** For mini Devices ***************/
+
+@media screen and (max-width: 340px) {
+
+  /* Single Product START */
+  .full-screen img {
+    width: 250px;
+    height: 200px;
+  }
+
+  #small_slides.owl-carousel .owl-item img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .add-to-cart-button {
+    padding: 10px 16px !important;
+    font-size: 14px !important;
+    margin-left: 75px !important;
+  }
+
+  .main-title,
+  .product-name-AED-180,
+  .box-size-heading {
+    font-size: 15px !important;
+  }
+
+  .sub-title {
+    font-size: 14px;
+    letter-spacing: 0.7px;
+  }
+
+  .box-size-tabs a {
+    letter-spacing: 0.7px;
+  }
+
+
+  /* Single Product END */
+
+}
+
+/************** For mini Devices ***************/

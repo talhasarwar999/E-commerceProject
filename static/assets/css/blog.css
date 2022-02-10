@@ -1,0 +1,334 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+a,
+a:hover {
+    color: #212529;
+}
+
+.scroll {
+    height: 100%;
+    overflow: hidden;
+}
+
+/********************************************** Blog Card START **********************************************/
+.blog .title {
+    padding: 50px 70px;
+}
+
+.blog .title h3 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.blog .card.card-block img {
+    width: 100%;
+    height: 150px !important;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card.card-block.blog-post {
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 0px !important;
+}
+
+.card.card-block.blog-post {
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 0px !important;
+}
+
+h5.blog-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 20px 0px;
+    text-transform: capitalize;
+
+    display: block; /* or inline-block */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+/***** Post Publish Date and Author Name Start For Blog Post START *****/
+.publish-details {
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+}
+
+.publish-details p {
+    margin-left: -15px !important;
+}
+
+.publish-details i {
+    padding-right: 25px;
+}
+
+/***** Post Publish Date and Author Name Start For Blog Post END *****/
+
+.blog-post p {
+    font-size: 13px;
+    margin: 10px 0px;
+    margin-right: 10px;
+}
+
+.blog_btn {
+    border: 1px solid black;
+    width: 35%;
+    padding: 6px;
+    font-size: 16px;
+    background: black;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 15px;
+    text-align: center;
+}
+
+a:hover.blog_btn {
+    color: #fff !important;
+}
+
+/********************************************** Blog Card END **********************************************/
+
+/********************************************** SIngle Blog Post Page START **********************************************/
+.blog-post {
+    margin-bottom: 50px;
+}
+
+.post-img {
+    padding: 50px 0px;
+    width: 98%;
+    margin: auto;
+}
+
+.post-img img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+/***** Post Publish Date and Author Name Start For Single-Blog Post START *****/
+.publisher {
+    display: flex;
+    align-items: center;
+    margin-top: -10px;
+}
+
+.publisher p {
+    font-size: 13px !important;
+    margin-top: 10px !important;
+    margin-left: 10px !important;
+}
+
+/***** Post Publish Date and Author Name Start For Single-Blog Post END *****/
+.post-description h2 {
+    font-size: 24px;
+    text-transform: capitalize;
+}
+
+.post-description p:nth-child(1) {
+    margin-top: 20px;
+}
+
+.post-description p {
+    font-size: 16px;
+    text-align: justify;
+    margin-top: 10px;
+}
+
+/********************************************** SIngle Blog Post Page END **********************************************/
+
+/* /***************************** */
+
+/**************** Mini Laptop Devices START ****************/
+@media screen and (max-width: 1400px) and (min-width: 1025px) {
+
+    /*=============== Blog Page START For Mini Laptop ===============*/
+    .blog .title {
+        padding: 50px 70px;
+    }
+
+    .blog .title h3 {
+        font-size: 18px;
+    }
+
+    .publish-details {
+        width: 60%;
+    }
+
+    .publisher {
+        width: 18%;
+    }
+
+    .post-description p:nth-child(1) {
+        margin-top: 15px;
+    }
+
+    /*=============== Blog Page END For Mini Laptop ===============*/
+
+}
+
+/**************** Mini Laptop Devices END ****************/
+
+/**************** Ipad Pro IOS Devices START ****************/
+
+@media screen and (max-width: 1024px) and (min-width: 992px) {
+
+    /*=============== Blog Page START For Ipad Pro ===============*/
+    .blog .title {
+        padding: 45px 30px;
+    }
+
+    .blog .title h3 {
+        font-size: 18px;
+    }
+
+    .blog_btn {
+        width: 50%;
+    }
+
+    .publish-details {
+        width: 75%;
+    }
+
+    .publisher {
+        width: 21%;
+    }
+
+    .post-description p:nth-child(1) {
+        margin-top: 15px;
+    }
+
+    /*=============== Blog Page END For Ipad Pro ===============*/
+
+}
+
+/************** Ipad Pro IOS Devices END **************/
+
+@media screen and (max-width: 991px) and (min-width: 768px) {
+
+    /*=============== Blog Page START For Ipad ===============*/
+    .blog .title {
+        padding: 40px 0px !important;
+    }
+
+    .blog .title h3 {
+        font-size: 14px !important;
+    }
+
+    .publish-details {
+        width: 65% !important;
+    }
+
+    .publisher {
+        width: 50% !important;
+    }
+
+    .card.card-block.blog-post {
+        padding: 10px !important;
+    }
+
+    .post-img {
+        padding: 40px 0px 30px 0px !important;
+    }
+
+    .post-img img {
+        height: 280px !important;
+        padding: 10px !important;
+    }
+
+    .post_details {
+        margin-top: -15px !important;
+    }
+
+    /*=============== Blog Page END For Ipad ===============*/
+
+}
+
+
+/************** For Mobile Devices **************/
+
+@media screen and (max-width: 767px) {
+
+    /*=============== Blog Page START For Mobile Devices ===============*/
+    .blog .title {
+        padding: 25px 10px !important;
+    }
+
+    .card.card-block.blog-post {
+        padding: 10px !important;
+    }
+
+    .blog .title h3 {
+        font-size: 14px !important;
+    }
+
+    .card.card-block.blog-post {
+        padding: 15px;
+    }
+
+    .publish-details {
+        width: 100%;
+    }
+
+    .publisher {
+        width: 55%;
+    }
+
+    /*=============== Blog Page END For Mobile Devices ===============*/
+
+    /*=============== Single Post Page START For Mobile Devices ===============*/
+    .blog-post {
+        margin-bottom: 30px;
+    }
+
+    .post-img {
+        padding: 40px 0px 30px 0px !important;
+    }
+
+    .post-img img {
+        height: 200px !important;
+        padding: 10px !important;
+    }
+
+    .post-description h2 {
+        font-size: 18px !important;
+    }
+
+    .post-description p:nth-child(1) {
+        margin-top: 50px;
+    }
+
+    .post-description p {
+        font-size: 15px;
+        margin-top: 15px;
+    }
+
+    .post_details {
+        margin-top: -40px !important;
+    }
+
+    /*=============== Single Post Page END For Mobile Devices ===============*/
+}
+
+@media screen and (max-width: 340px) {
+.blog_btn {
+    width: 44%;
+    font-size: 14px;
+}
+}

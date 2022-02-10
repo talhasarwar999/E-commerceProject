@@ -1,0 +1,2034 @@
+/******************************** For 1400 to max design ************************/
+
+@media screen and (min-width:1401px) {
+  .navbar_user {
+    margin-left: 0px;
+  }
+
+  /*********** Single Product Page START for 1401 to on going ***********/
+  .product-description {
+    width: 100%;
+  }
+
+  /*********** Single Product Page END for 1401 to on going  ***********/
+}
+
+/******************************** For Mini Laptop ********************************/
+
+@media screen and (max-width: 1400px) and (min-width:1025px) {
+
+  /*=============== Home Page Start For Mini Laptop ===============*/
+  img.img-responsive {
+    width: 97% !important;
+  }
+
+  .logo img {
+    height: 180px;
+  }
+
+  .bars,
+  .bars::before,
+  .bars::after {
+    width: 45px;
+    height: 5px;
+  }
+
+  .bars::before {
+    transform: translateY(-9px);
+  }
+
+  .bars::after {
+    transform: translateY(9px);
+  }
+
+  .search_bar {
+    margin-left: -10px;
+  }
+
+  .left_text .heading {
+    font-size: 70px;
+    height: 80px;
+  }
+
+  .right_text .details_text {
+    margin-top: -10px;
+  }
+
+  .box {
+    padding-top: 8% !important;
+    padding-bottom: 8% !important;
+  }
+
+  .box p {
+    font-size: 16px;
+  }
+
+  .box img {
+    height: 35px;
+    width: 35px;
+    margin-bottom: 6px;
+  }
+
+  /*=============== Home Page END For Mini Laptop ===============*/
+
+  /************ Sub Pages Navbar left user icons START For Mini Laptop ************/
+  .navbar {
+    padding-right: 5px;
+  }
+
+  .navbar_user {
+    align-items: center;
+    margin-left: 0px;
+    margin-top: 3px;
+    /* width: 23%; */
+    width: 12%;
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+  }
+
+  /* bread cum */
+  .bread_cum {
+    padding: 8px 20px;
+  }
+
+  /************ Category Page START For Mini Laptop ************/
+  .product_left p {
+    padding: 10px 10px;
+    font-size: 18px;
+    padding-left: 20px;
+  }
+
+  .question {
+    padding: 12px 20px;
+  }
+
+  .answer ul {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 1;
+  }
+
+  .answer ul li {
+    margin: 5px 0px;
+  }
+
+
+  .row.ltg .card-block {
+    width: 170px;
+  }
+
+  .row.ltg.list .card-block {
+    width: 100%;
+  }
+
+  .card.card-block img {
+    width: 170px;
+    height: 170px;
+  }
+
+  .product_cart i {
+    font-size: 10px;
+  }
+
+  .option-box img {
+    height: 43px;
+  }
+
+  /************ Category Page END For Mini Laptop ************/
+
+  /*********** Single Product Page START for mini Laptop ***********/
+  .product-description {
+    width: 100%;
+  }
+
+  #small_slides {
+    padding: 0px 34px !important;
+  }
+
+  /*********** Single Product Page END for mini Laptop ***********/
+
+  /*=============== Contact us Page START For Mini Laptop ===============*/
+  .container.contact-us {
+    padding: 40px 0px 30px 0px !important;
+  }
+
+  .contact-title {
+    width: 80% !important;
+  }
+
+  .subscribe-form-top {
+    letter-spacing: 0.7px !important;
+    padding: 15px 15px !important;
+  }
+
+  .form_title {
+    font-size: 18px !important;
+  }
+
+  .form_text {
+    font-size: 11px !important;
+  }
+
+  .subscribe-form {
+    padding: 20px 120px !important;
+  }
+
+  .subscribe-form-bottom {
+    padding: 15px !important;
+  }
+
+  textarea.form-control {
+    height: 145px !important;
+  }
+
+  .mapframe {
+    height: 540px !important;
+  }
+
+
+  .contact-info p,
+  .Delivery-method p {
+    font-size: 18px !important;
+  }
+
+  form#p-form input[type="text"],
+  .name-info input#id_email {
+    padding: 6px 15px !important;
+    font-size: 14px !important;
+    letter-spacing: 1px !important;
+    margin-bottom: 11px !important;
+  }
+
+  input.bg-dark.text-white.w-100.rounded.form_subscribe_btn {
+    padding: 6px 15px !important;
+    letter-spacing: 1px !important;
+  }
+
+  /*=============== Contact us Page END For Mini Laptop ===============*/
+
+  /*=============== Footer START For Ipad ===============*/
+  .lists h6 {
+    height: 20px;
+  }
+
+  /*=============== Footer END For Ipad ===============*/
+
+}
+
+/******************************** Ipad Pro ********************************/
+
+@media screen and (max-width: 1024px) and (min-width: 992px) {
+
+  /*=============== Home Page Start Ipad Pro ===============*/
+  .banner-carousel .croppedImg {
+    height: 60vh;
+  }
+
+  .logo img {
+    height: 160px;
+  }
+
+  .bars,
+  .bars::before,
+  .bars::after {
+    width: 40px;
+    height: 4px;
+  }
+
+  .bars::before {
+    transform: translateY(-8px);
+  }
+
+  .bars::after {
+    transform: translateY(8px);
+  }
+
+  .search_bar {
+    padding-right: 0% !important;
+    margin-left: -31px;
+  }
+
+  img.img-responsive {
+    height: 290px;
+    width: 95% !important;
+  }
+
+  .owl-carousel .owl-next,
+  .owl-carousel .owl-prev {
+    top: 27% !important;
+  }
+
+  .offers-img img {
+    height: 350px;
+  }
+
+  .left_text .heading {
+    font-size: 60px;
+    height: 65px;
+  }
+
+  .right_text .details_text {
+    width: 85%;
+    padding-top: 45px;
+
+  }
+
+  .box {
+    padding-top: 7% !important;
+    padding-bottom: 7% !important;
+  }
+
+  .box p {
+    font-size: 15px;
+  }
+
+  .box img {
+    height: 30px;
+    width: 30px;
+    margin-bottom: 5px;
+  }
+
+  /*=============== Home Page END Ipad Pro ===============*/
+
+  /*=============== Sub Pages Hamberger For Ipad Pro ===============*/
+  .logo_container {
+    justify-content: flex-start;
+    margin-top: 23px;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 45px;
+    top: 66px;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  /*=============== Bread Cum START For Ipad Pro ===============*/
+  .bread_cum {
+    padding: 5px 20px;
+  }
+
+  /*=============== Bread Cum END For Ipad Pro ===============*/
+
+  /*=============== Shop Box Left For Ipad Pro ===============*/
+  .product_left p {
+    padding: 8px 10px;
+    font-size: 17px;
+  }
+
+  .material_pics {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .material_pics .col-md-3 {
+    width: 25% !important;
+    margin-right: 10px;
+    padding-bottom: 10px;
+  }
+
+  .question h3 {
+    font-size: 16px;
+  }
+
+  /*=============== Product Category Right Side For Ipad Pro ===============*/
+  .category_title {
+    padding: 0px 10px;
+    margin-top: -4px !important;
+  }
+
+  .product_rightHeader {
+    padding: 0px 10px;
+  }
+
+  .right_option .item_filter {
+    font-size: 16px;
+  }
+
+  .row.ltg {
+    padding: 0;
+  }
+
+  .row.ltg.list {
+    padding: 0px 12px;
+  }
+
+  .row.ltg .card-block {
+    width: 140px;
+  }
+
+  .row.ltg.list .card-block {
+    width: 100%;
+  }
+
+  .card-block {
+    padding: 0px 0px;
+  }
+
+  .product_cart {
+    padding: 4px;
+    padding-top: 6px;
+  }
+
+  .product_cart i {
+    font-size: 10px;
+    transform: translate(5px, 0px);
+  }
+
+  .card.card-block img {
+    width: 140px;
+    height: 140px;
+  }
+
+  /*=============== Cart Page START For Ipad Pro ===============*/
+  .cart-title h5 {
+    font-size: 16px;
+  }
+
+  .cart-product p {
+    font-size: 14px;
+  }
+
+  .product-detail img {
+    margin: 10px 20px 25px 0px;
+    width: 130px;
+    height: 130px;
+  }
+
+  .remove-icon {
+    padding-right: 20px;
+  }
+
+  .remove-icon img {
+    width: 16px;
+    padding: 2px;
+  }
+
+  .discount-btn input[type="text"] {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .cart-button button {
+    padding: 8.7px 50px;
+    font-size: 14px;
+  }
+
+  .add-cart-btn span {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+
+  .cart-bill {
+    padding: 8px 0px;
+    font-size: 14px;
+  }
+
+  .sub-total,
+  .cart-shipping,
+  .cart-discount {
+    padding: 8px 15px 0px 15px;
+    font-size: 14px;
+  }
+
+  .cart-tax {
+    padding: 8px 15px 8px 15px;
+    font-size: 14px;
+  }
+
+  .total-bill {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .total-bill-btn {
+    padding: 8px 15px;
+    font-size: 15px;
+  }
+
+  /*=============== Cart Page END For Ipad Pro ===============*/
+
+  /*=============== Contact us Page START For Ipad Pro ===============*/
+  .container.contact-us {
+    padding: 35px 0px 25px 0px;
+  }
+
+  .contact-title {
+    width: 80%;
+  }
+
+  .contact-title h3 {
+    font-size: 24px;
+    letter-spacing: 0.7px;
+  }
+
+  .contact-title p {
+    font-size: 13px;
+    letter-spacing: 0.7px;
+  }
+
+  .subscribe-form {
+    padding: 20px 65px;
+  }
+
+  .subscribe-form-top {
+    letter-spacing: 0.7px;
+    padding: 15px 25px !important;
+  }
+
+  .form_title {
+    font-size: 16px;
+  }
+
+  .form_text {
+    font-size: 11px;
+  }
+
+  form#p-form input[type="text"],
+  .name-info input#id_email,
+  select#countryId,
+  select#stateId,
+  select#cityId {
+    padding: 5px 15px !important;
+    font-size: 14px;
+    margin-bottom: 8px !important;
+  }
+
+  textarea.form-control {
+    height: 120px;
+  }
+
+  .mapframe {
+    height: 500px;
+  }
+
+  button.shipping-button {
+    padding: 8px 15px;
+    font-size: 15px;
+    letter-spacing: 0.7px;
+  }
+
+  /*=============== Contact us Page END For Ipad Pro ===============*/
+
+  /*=============== Footer START For Ipad Pro ===============*/
+  .lists h6 {
+    height: 30px;
+  }
+
+  /*=============== Footer END For Ipad Pro ===============*/
+}
+
+/******************************** Ipad  IOS Devices *********************************/
+
+@media screen and (max-width:991px) and (min-width: 768px) {
+
+  /*=============== Home Page Start For Ipad ===============*/
+  .toggle {
+    height: 45vh;
+  }
+
+  .banner-carousel .croppedImg {
+    height: 55vh;
+  }
+
+  .logo img {
+    height: 150px;
+  }
+
+  .search_bar {
+    padding-right: 0% !important;
+    margin-left: -25px;
+    display: flex;
+    align-items: center;
+  }
+
+  .bars,
+  .bars::before,
+  .bars::after {
+    width: 35px;
+    height: 4px;
+  }
+
+  .bars::before {
+    transform: translateY(-8px);
+  }
+
+  .bars::after {
+    transform: translateY(8px);
+  }
+
+  .hamburger_home img {
+    width: 25px;
+    margin-top: -35px;
+  }
+
+  .left_text .heading {
+    font-size: 45px;
+    height: 50px;
+  }
+
+  .right_text .details_text {
+    width: 100%;
+    margin-top: -28px;
+  }
+
+  .testimonials {
+    width: 81% !important;
+  }
+
+  #customers-testimonials .item {
+    margin-bottom: 12px;
+  }
+
+  img.img-responsive {
+    height: 225px;
+    width: 95% !important;
+  }
+
+  .featured-products .owl-next,
+  .featured-products .owl-prev {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .featured-products .owl-nav .owl-prev {
+    left: -60px;
+  }
+
+  .featured-products .owl-nav .owl-next {
+    right: -60px;
+  }
+
+  .owl-carousel .owl-next,
+  .owl-carousel .owl-prev {
+    top: 22% !important;
+  }
+
+  .box p {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  .box {
+    padding-top: 7% !important;
+    padding-bottom: 7% !important;
+  }
+
+  .box img {
+    height: 30px;
+    width: 30px;
+    margin-bottom: 5px;
+  }
+
+  .offers-img img {
+    height: 300px !important;
+  }
+
+  .right_social i {
+    font-size: 18px;
+    padding: 4px 20px;
+  }
+
+  /*=============== Home Page END For Ipad ===============*/
+
+  /*=============== Sub Pages Hamberger START For Ipad ===============*/
+  .logo_container {
+    justify-content: flex-start;
+    margin-top: 20px;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 40px;
+    top: 60px;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  /******* SEARCH BAR START *******/
+  .overlay-content {
+    width: 70%;
+  }
+
+  /******* SEARCH BAR END *******/
+
+  /*=============== Sub Pages Hamberger END For Ipad ===============*/
+
+  /*=============== Bread Cum START For Ipad ===============*/
+  .bread_cum {
+    padding: 5px 20px !important;
+  }
+
+  .breadcrumb li a {
+    font-size: 14px;
+  }
+
+  /*=============== Bread Cum END For Ipad ===============*/
+
+  /*=============== Product Category START For Ipad ===============*/
+  .reset_btn.option-box p {
+    float: left;
+    margin-top: 5px;
+  }
+
+  .product_left p {
+    font-size: 13px;
+  }
+
+  .product_leftHeader {
+    padding-left: 18px !important;
+  }
+
+  .col-3.option-box {
+    padding: 0.1rem 0.1rem;
+  }
+
+  .option-box img {
+    height: 40px;
+  }
+
+  .question h3 {
+    font-size: 13px;
+    margin-bottom: 0px;
+  }
+
+  .grand_cat p {
+    padding: 10px 10px !important;
+    font-size: 14px !important;
+  }
+
+  /*=============== Product Category Right Side START For Ipad ===============*/
+  .category_title {
+    font-size: 18px;
+    padding: 0px 10px;
+    margin-top: -4px;
+  }
+
+  .product_rightHeader {
+    padding: 0px 10px;
+  }
+
+  .right_option .item_filter {
+    font-size: 16px;
+  }
+
+  .right_option select {
+    width: 140px;
+  }
+
+  .row.ltg {
+    padding: 0;
+  }
+
+  .row.ltg.list {
+    padding: 0px 12px;
+  }
+
+  .row.ltg .card-block {
+    width: 140px;
+  }
+
+  .row.ltg.list .card-block {
+    width: 100%;
+  }
+
+  .card.card-block img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .card-block {
+    padding: 0px 0px;
+  }
+
+  .product_cart {
+    padding: 4px;
+    padding-top: 5px;
+  }
+
+  .product_cart i {
+    font-size: 10px;
+    transform: translate(5px, 0px);
+  }
+
+  /*=============== Product Category Right Side END For Ipad ===============*/
+  /*=============== Product Category END For Ipad ===============*/
+
+  /*=============== Single Product START For Ipad ===============*/
+  .main-title {
+    margin-bottom: 3px !important;
+    font-size: 16px !important;
+  }
+
+  .product-name-AED-180,
+  .box-size-heading {
+    font-size: 16px !important;
+  }
+
+  .single-product .sub-title {
+    margin-bottom: 5px !important;
+  }
+
+  .box-size-tabs a {
+    font-size: 14px !important;
+  }
+
+  .Quantity .quantity-box ul li {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .Quantity li.num-li input {
+    font-size: 12px;
+    padding: 6.2px;
+  }
+
+  .add-to-cart-button {
+    padding: 6px 14px !important;
+    font-size: 15px !important;
+    margin-left: 77px !important;
+  }
+
+  .product-description-title {
+    margin-bottom: 0px !important;
+  }
+
+  /*=============== Single Product END For Ipad ===============*/
+
+  /*=============== Cart Page START For Ipad ===============*/
+
+  .my-cart {
+    margin-top: 20px;
+  }
+
+  .remove-icon {
+    padding-right: 25px;
+    top: 0%;
+  }
+
+  .cart-title {
+    margin: 15px 0px;
+    padding: 5px 0px;
+  }
+
+  .cart-title h5 {
+    font-size: 16px;
+  }
+
+  .cart-product {
+    margin-bottom: 15px;
+  }
+
+  .product-detail img {
+    margin: 5px 10px 18px 0px;
+    width: 130px;
+    height: 130px;
+  }
+
+  .cart-product p {
+    font-size: 14px;
+    letter-spacing: 0.7px;
+  }
+
+  .discount-btn input[type="text"] {
+    padding: 0px 10px;
+    height: 34px;
+    width: 50%;
+    font-size: 14px;
+  }
+
+  .cart-button .discount-btn .active {
+    padding: 5.4px 30px;
+    font-size: 14px;
+  }
+
+  .cart-button span {
+    padding: 8px 30px;
+    font-size: 14px;
+    letter-spacing: 0.7px;
+  }
+
+  .cart-total {
+    margin: 45px 0px;
+    width: 55%;
+  }
+
+  .cart-bill {
+    padding: 8px 0px;
+    font-size: 16px;
+    letter-spacing: 0.7px;
+  }
+
+  .cart-total .sub-total,
+  .cart-total .cart-shipping,
+  .cart-total .cart-tax {
+    padding: 14px 14px 0px 14px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+  }
+
+  .cart-total .total-bill {
+    padding: 14px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+  }
+
+  .total-bill-btn {
+    padding: 8px 15px;
+    font-size: 16px;
+  }
+
+  /*=============== Cart Page END For Ipad ===============*/
+
+
+  /*=============== Payment Page START For Ipad ===============*/
+
+  /*=============== shipping side START For Ipad ===============*/
+  .contact-info p,
+  .Delivery-method p,
+  .shipping-info p {
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+
+  .Delivery-method,
+  .shipping-info {
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+  }
+
+  .contact-info input[type="email"],
+  .shipping-info .name-info input[type="text"],
+  .shipping-info input[type="text"] {
+    padding: 6px;
+    font-size: 13px;
+    letter-spacing: 0.7px;
+  }
+
+  .Delivery-method .input-group-text {
+    padding: 6px;
+  }
+
+  .Delivery-method span {
+    font-size: 13px;
+    letter-spacing: 0.7px;
+  }
+
+  .Delivery-method i {
+    font-size: 14px;
+  }
+
+  .form-check-input[type=radio],
+  .form-check-input[type="checkbox"] {
+    width: .7em;
+    height: .7em;
+  }
+
+  .form-check-label {
+    font-size: 14px;
+    letter-spacing: 0.7px;
+  }
+
+  .submit-buttons span {
+    padding: 12px 20px;
+    font-size: 14px;
+    letter-spacing: 0.7px;
+  }
+
+  /*=============== shipping side END For Ipad ===============*/
+
+  /*=============== Payment side START For Ipad ===============*/
+  .shipping-form {
+    padding: 0px 25px !important;
+    margin-bottom: 70px !important;
+  }
+
+  .payment-product {
+    padding: 38px 25px !important;
+  }
+
+  .shipping-products {
+    margin-bottom: 15px !important;
+  }
+
+  .payment-product .prodcut-details p,
+  .product-price {
+    padding-left: 10px !important;
+    font-size: 13px !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .payment-total {
+    margin-top: 10px !important;
+  }
+
+  .bill-detail {
+    padding: 10px 0px !important;
+  }
+
+  .payment-total .sub-total,
+  .payment-total .cart-shipping,
+  .payment-total .cart-tax,
+  .payment-total .total-bill {
+    font-size: 13px !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .payment-total-bill {
+    padding: 10px 0px !important;
+    border-top: 1.5px solid #ced4da !important;
+    border-bottom: 1.5px solid #ced4da !important;
+    font-size: 15px !important;
+    letter-spacing: 1px !important;
+  }
+
+  .name-info {
+    display: block !important;
+  }
+
+  .shipping-info .name-info input[type="text"] {
+    width: 100%;
+  }
+
+  .name-info>.btn-group.bootstrap-select.countrypicker.f16 {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  #p-form .submit-buttons {
+    margin-top: 20px !important;
+  }
+
+  /*=============== Payment side END For Ipad ===============*/
+
+  /*=============== Payment Page END For Ipad ===============*/
+
+  /*=============== Contact us Page START For Ipad ===============*/
+  .container.contact-us {
+    padding: 35px 0px 25px 0px !important;
+  }
+
+  .contact-title {
+    width: 80% !important;
+  }
+
+  .contact-title h3 {
+    font-size: 24px !important;
+    letter-spacing: 0.7px !important;
+  }
+
+  .contact-title p {
+    font-size: 13px !important;
+    letter-spacing: 0.7px !important;
+  }
+
+  .subscribe-form {
+    padding: 20px !important;
+  }
+
+  .subscribe-form-top {
+    letter-spacing: 0.7px !important;
+    padding: 15px 20px !important;
+  }
+
+  .subscribe-form-bottom {
+    padding: 15px 20px !important;
+  }
+
+  .form_title {
+    font-size: 16px !important;
+  }
+
+  .form_text {
+    font-size: 11px !important;
+  }
+
+  form#p-form input[type="text"],
+  .name-info input#id_email,
+  select#countryId,
+  select#stateId,
+  select#cityId {
+    padding: 6px 15px !important;
+    font-size: 14px !important;
+    margin-bottom: 8px !important;
+    width: 100% !important;
+  }
+
+  textarea.form-control {
+    height: 100px !important;
+  }
+
+  select#stateId {
+    margin-bottom: 15px !important;
+  }
+
+  button.shipping-button {
+    padding: 8px 15px !important;
+    font-size: 14px !important;
+    letter-spacing: 0.7px !important;
+  }
+
+  .mapframe {
+    height: 500px !important;
+  }
+
+  /*=============== Contact us Page END For Ipad ===============*/
+
+  /*=============== Footer START For Ipad ===============*/
+  .lists h6 {
+    height: 30px;
+  }
+
+  /*=============== Footer END For Ipad ===============*/
+
+}
+
+/******************************* For Mobile Devices ********************************/
+
+@media screen and (max-width: 767px) {
+
+  /*=============== Home Page Header and Slider Start For Mobile Devices ===============*/
+  .header {
+    margin-top: 10px;
+  }
+
+  .search_home {
+    display: none;
+  }
+
+  .search_bar {
+    padding-top: 1%;
+    padding-left: 8%;
+    padding-right: 5% !important;
+  }
+
+  .logo {
+    margin-top: -14px;
+  }
+
+  .logo img {
+    height: 100px;
+  }
+
+  .carousel-control-prev {
+    left: 15px !important;
+    width: 4% !important;
+    height: 4%;
+  }
+
+  .carousel-control-next {
+    right: 15px !important;
+    width: 4% !important;
+    height: 4%;
+  }
+
+  /*=============== Home Page Header and Slider END For Mobile Devices ===============*/
+
+  /*=============== Home Page Hamberger START For Mobile Devices ===============*/
+  .hamburger_home {
+    padding-left: 1.5% !important;
+    padding-top: 1%;
+  }
+
+  .hamburger_home img {
+    width: 25px;
+    margin-top: -35px;
+  }
+
+  /*=============== Home Page Hamberger END For Mobile Devices ===============*/
+
+  /*=============== Top Bar For Mobile Devices ===============*/
+
+  .top-info {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  .top-info span {
+    padding-right: 0px;
+  }
+
+  .top-info span i {
+    margin-left: 0px;
+  }
+
+  /*=============== Home Page Hamberger START For Mobile Devices ===============*/
+
+  .bars {
+    width: 30px;
+    height: 4px;
+  }
+
+  .bars::before,
+  .bars::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 4px;
+  }
+
+  .bars::before {
+    transform: translateY(-8px);
+  }
+
+  .bars::after {
+    transform: translateY(8px);
+  }
+
+  /*=============== Home Page Hamberger END For Mobile Devices ===============*/
+
+  /*=============== Sub Pages Hamberger START For Mobile Devices ===============*/
+  .main_nav_container {
+    height: 80px;
+  }
+
+  .main_nav_container .container {
+    position: relative;
+  }
+
+  .logo_container {
+    justify-content: flex-start;
+    margin-top: 15px;
+  }
+
+  .logo_container img {
+    height: 48px;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 25px;
+    width: 8%;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .mobile-nav {
+    width: 90%;
+  }
+
+  .mobile-nav.is-active {
+    left: 10%;
+  }
+
+  /******* SEARCH BAR START *******/
+  .overlay-content {
+    width: 85%;
+  }
+
+  .overlay .closebtn {
+    top: 25px;
+    right: 30px;
+    font-size: 50px;
+  }
+
+  /******* SEARCH BAR END *******/
+
+  /*=============== Hamberger END For Mobile Devices ===============*/
+
+
+  /*=============== BreadCumb START For Mobile Devices ===============*/
+  .breadcrumb {
+    padding: 8px 0px !important;
+    letter-spacing: .8px;
+  }
+
+  .breadcrumb-item,
+  .breadcrumb li a {
+    font-size: 12px;
+  }
+
+  .bread_cum {
+    padding: 5px 10px;
+  }
+
+  /*=============== BreadCumb END  For Mobile Devices===============*/
+
+
+  /*=============== Filter Icons FIxed FOr Mobile Only START ===============*/
+  .filter_icon {
+    display: flex;
+    align-items: center;
+    margin: -30px 0px 12px 0px;
+  }
+
+  .filter_icon i {
+    font-size: 18px;
+    padding: 10px;
+    background: black;
+    color: white;
+  }
+
+  .filter_icon p {
+    margin-left: 5px;
+    margin-bottom: 0px;
+    font-size: 20px;
+  }
+
+  .category_title {
+    margin-bottom: 10px !important;
+    margin-top: 0px;
+  }
+
+  /*=============== Filter Icons FIxed FOr Mobile Only  END ===============*/
+
+  /*=============== Filters Popup FOr Mobile Only START ===============*/
+  .cross_icon {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+
+  .filter {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    padding-top: 10px !important;
+    padding-bottom: 135px;
+    right: 100%;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 999999;
+    background-color: rgb(255, 255, 255);
+    padding-top: 120px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    overflow-y: scroll;
+  }
+
+  .filter.active {
+    right: 0%;
+  }
+
+  /*=============== Filters Popup FOr Mobile Only END ===============*/
+
+  /*=============== Category Page START For Mobile Devices ===============*/
+  .option-box img {
+    height: 65px;
+  }
+
+  /*=============== Category Page END ForMobile Devices ===============*/
+
+  /*=============== Sub Pages Grid and List Buttons Start For Mobile Devices ===============*/
+  .right_option {
+    padding-top: 2.15%;
+  }
+
+  .left_options {
+    padding-top: 0%;
+    margin-left: 0%;
+  }
+
+  .right_option .item_filter {
+    font-size: 14px;
+  }
+
+  .right_option select {
+    width: 115px;
+    padding: 5px 0px;
+  }
+
+  .card-block {
+    margin-bottom: 25px;
+  }
+
+  h5.card-title,
+  p.card-text {
+    font-size: 11px;
+  }
+
+  .category_title {
+    padding: 0px 10px;
+  }
+
+  .product_rightHeader {
+    padding: 0px 10px;
+  }
+
+  .row.ltg {
+    padding: 0;
+  }
+
+  .row.ltg.list {
+    padding: 0px 12px;
+  }
+
+  .row.ltg .card-block {
+    width: 155px;
+  }
+
+  .row.ltg.list .card-block {
+    width: 100%;
+  }
+
+  .card.card-block img {
+    width: 155px;
+    height: 155px;
+  }
+
+  .card-block {
+    padding: 0px 0px;
+  }
+
+  .product_cart {
+    /* right: -8px; */
+    padding: 4px;
+    padding-top: 5px;
+  }
+
+  .product_cart i {
+    font-size: 10px;
+  }
+
+  /*=============== Sub Pages Grid and List Buttons End For Mobile Devices ===============*/
+
+  /*=============== Home Page Best Seller For Mobile Devices ===============*/
+
+  .details_text {
+    padding-top: 5px !important;
+    width: 100% !important;
+    font-weight: 400 !important;
+    ;
+  }
+
+  .left_text .heading {
+    font-size: 40px;
+    height: 50px;
+    text-align: center !important;
+  }
+
+  .row.text.py-4 {
+    padding-top: 1.0rem !important;
+  }
+
+  p.sub_heading {
+    font-size: 12px;
+    text-align: center !important;
+  }
+
+  .testimonials {
+    width: 82% !important;
+    padding-left: 0.7%;
+    padding-top: 0px !important;
+  }
+
+  img.img-responsive {
+    width: 99% !important;
+    height: 380px !important;
+  }
+
+  .featured-products .owl-nav .owl-prev {
+    left: -44px;
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .featured-products .owl-nav .owl-next {
+    right: -44px;
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  #customers-testimonials .item-details {
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  #customers-testimonials .item {
+    text-align: center;
+    margin-bottom: 0px;
+  }
+
+  /*=============== Home Page Best Seller END For Mobile Devices ===============*/
+
+  /*=============== Hoem Page Banner For Mobile Devices ===============*/
+  .banner {
+    margin-top: 40px !important;
+  }
+
+  .offers-img img {
+    height: 160px;
+  }
+
+  /*=============== Home Page Banner END For Mobile Devices ===============*/
+
+  /*=============== Single Product START For Mobile Devices ===============*/
+  .single-product {
+    margin-top: 50px !important;
+  }
+
+  .main-title,
+  .product-name-AED-180,
+  .box-size-heading {
+    font-size: 18px !important;
+  }
+
+  /*=============== Single Product END For Mobile Devices ===============*/
+
+  /*=============== Cart Page START For Mobile Devices ===============*/
+  .row.my-cart-bill {
+    padding-left: 2px;
+    padding-right: 3px;
+    justify-content: center;
+    margin-top: -14px;
+  }
+
+  .my-cart {
+    margin-top: 15px;
+  }
+
+  .cart-title {
+    margin: 10px 0px;
+    border-bottom: 1px solid #322c1070;
+    padding: 0px 0px;
+  }
+
+  .cart-title h5 {
+    font-size: 12px;
+  }
+
+  .cart-product {
+    border-bottom: 1px solid #322c104a;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .product-detail img {
+    margin: 2px 8px 11px 0px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .cart-product p {
+    font-size: 10px;
+    letter-spacing: 0.2px;
+  }
+
+  .cart-quantity ul li {
+    font-size: 9px;
+    padding: 0px 2px;
+    border: .5px solid black !important;
+  }
+
+  .cart-quantity ul li.num-li input {
+    font-size: 9px;
+    width: 15px;
+    height: 10px;
+  }
+
+  .discount-btn input[type="text"] {
+    height: 31px;
+    width: 100%;
+    font-size: 12px;
+    padding: 0px 5px;
+  }
+
+  .cart-button .discount-btn .active {
+    padding: 4.8px 15px;
+    font-size: 13px;
+  }
+
+  .col-12.discount-btn {
+    width: 90%;
+    margin: auto;
+  }
+
+  .cart-button span {
+    padding: 9px 35px;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+  }
+
+  .add-cart-btn {
+    justify-content: center;
+    margin-top: 18px;
+  }
+
+  .cart-button {
+    display: flex;
+    justify-content: center;
+  }
+
+  .add-to-cart-button {
+    padding: 10px 24px !important;
+    font-size: 15px !important;
+    margin-left: 77px !important;
+  }
+
+  .cart-total {
+    margin: 20px 0px 40px 0px;
+    width: 100%;
+  }
+
+  .cart-bill {
+    padding: 6px 0px;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+  }
+
+  .sub-total,
+  .cart-shipping,
+  .cart-tax {
+    padding: 8px 10px 0px 8px;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+  }
+
+  .total-bill {
+    padding: 8px 10px 8px 8px;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+  }
+
+  .total-bill-btn {
+    padding: 8.5px 15px;
+    font-size: 14px;
+  }
+
+  .remove-icon {
+    padding-right: 0px;
+    top: 0%;
+  }
+
+  .remove-icon img {
+    width: 15px;
+  }
+
+  /*=============== Cart Page END For For Mobile Devices ===============*/
+
+  /*=============== Payment Page START For Mobile Devices ===============*/
+
+  /*===== shipping side START For Mobile Devices ====*/
+  .payment-product .prodcut-details img {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .payment {
+    margin-top: 20px !important;
+  }
+
+  .main-row {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .contact-info p,
+  .Delivery-method p,
+  .shipping-info p {
+    margin-bottom: 5px !important;
+    font-size: 16px !important;
+  }
+
+  .Delivery-method,
+  .shipping-info {
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+  }
+
+  .contact-info input[type="email"],
+  .shipping-info .name-info input[type="text"],
+  .shipping-info input[type="text"] {
+    padding: 6px;
+    font-size: 13px;
+    letter-spacing: 0.7px;
+  }
+
+  .Delivery-method .input-group-text {
+    padding: 6px;
+  }
+
+  .Delivery-method span {
+    font-size: 13px;
+    letter-spacing: 0.7px;
+  }
+
+  .Delivery-method i {
+    font-size: 14px;
+  }
+
+  .form-check-input[type=radio],
+  .form-check-input[type="checkbox"] {
+    width: .7em;
+    height: .7em;
+  }
+
+  .form-check-label {
+    font-size: 12px;
+    letter-spacing: 0px;
+  }
+
+  .submit-buttons {
+    margin: 20px 0px 30px 0px !important;
+  }
+
+  button.shipping-button,
+  .submit-buttons a {
+    padding: 8px 10px !important;
+    font-size: 13px !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  /*===== shipping side END For Mobile Devices ====*/
+
+  /*===== Payment side START For Mobile Devices ====*/
+
+  .shipping-form {
+    padding: 0px 5px !important;
+    margin-bottom: -10px !important;
+    border-right: 0px !important;
+  }
+
+  .payment-product {
+    padding: 10px 5px !important;
+  }
+
+  .shipping-products {
+    margin-bottom: 15px !important;
+  }
+
+  .payment-product .prodcut-details p,
+  .product-price {
+    padding-left: 10px !important;
+    font-size: 13px !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .payment-product .row {
+    margin: 0px;
+  }
+
+  .payment-total {
+    margin-top: -20px !important;
+  }
+
+  .bill-detail {
+    padding: 10px 0px;
+  }
+
+  .payment-total .sub-total,
+  .payment-total .cart-shipping,
+  .payment-total .cart-tax,
+  .payment-total .total-bill {
+    font-size: 13px !important;
+    letter-spacing: 0.5px !important;
+    padding: 10px 5px 0px 5px;
+  }
+
+  .payment-total-bill {
+    padding: 10px 0px !important;
+    border-top: 1.5px solid #ced4da !important;
+    border-bottom: 1.5px solid #ced4da !important;
+    font-size: 15px !important;
+    letter-spacing: 1px !important;
+  }
+
+  .name-info {
+    display: block !important;
+  }
+
+  .shipping-info .name-info input[type="text"] {
+    width: 100%;
+  }
+
+  /* .shipping-info .name-info select#country, select#state, select#billing-country, select#billing-state {
+    width: 100%;
+  } */
+  /*===== Payment side END For Mobile Devices ====*/
+
+  /*=============== Payment Page END For Mobile Devices ===============*/
+
+  /*=============== Contact us Page START For Mobile Devices ===============*/
+  .container.contact-us {
+    padding: 25px 0px 15px 0px !important;
+  }
+
+  .contact-title {
+    width: 100% !important;
+  }
+
+  .contact-title h3 {
+    font-size: 20px !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .contact-title p {
+    font-size: 12px !important;
+    letter-spacing: 0.5px !important;
+    text-align: justify !important;
+  }
+
+  .subscribe-form {
+    padding: 30px 0px !important;
+  }
+
+  .subscribe-form-top {
+    letter-spacing: 0.7px !important;
+    padding: 20px 30px !important;
+  }
+
+  .subscribe-form-bottom {
+    padding: 30px !important;
+  }
+
+  .form_title {
+    font-size: 14px !important;
+  }
+
+  .form_text {
+    font-size: 10px !important;
+  }
+
+  form#p-form input[type="text"],
+  .name-info input#id_email,
+  select#countryId,
+  select#cityId {
+    padding: 6px 15px !important;
+    font-size: 13px !important;
+    width: 100% !important;
+    margin-bottom: 10px !important;
+  }
+
+  select#stateId {
+    padding: 6px 15px !important;
+    font-size: 13px !important;
+    width: 100% !important;
+    margin-bottom: 10px;
+  }
+
+  .mapframe {
+    height: 420px !important;
+    margin-bottom: -5px !important;
+  }
+
+  textarea.form-control {
+    height: 115px !important;
+  }
+
+  /*=============== Contact us Page END For Mobile Devices ===============*/
+
+  /*=============== Login Form START For Mobile Devices ===============*/
+  .form_body {
+    width: 300px !important;
+    padding: 25px 0 !important;
+  }
+
+  .tabs_content {
+    padding: 20px 15px 0px 15px !important;
+  }
+
+  .tabs_content input {
+    padding: 6px !important;
+  }
+
+  .forgot-pass {
+    margin-top: -22px !important;
+    width: 55% !important;
+  }
+
+  /*=============== Login Form END For Mobile Devices ===============*/
+
+  /*=============== Before Footer Products Categories START For Mobile Devices ===============*/
+  .row.catergories {
+    margin-top: 10px;
+  }
+
+  .catergories .col-md-3.col-6 {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .box {
+    margin-right: 1.5px;
+    margin-left: 1.5px;
+    margin-bottom: 3px;
+    padding-top: 5% !important;
+    padding-bottom: 5% !important;
+  }
+
+  .box img {
+    height: 25px;
+    width: 25px;
+    margin-bottom: 6px;
+  }
+
+  .box p {
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  /*=============== Before Footer Products Categories END For Mobile Devices ===============*/
+
+  /*=============== Footer Social Icons START For Mobile Devices ===============*/
+  .right_social {
+    justify-content: space-evenly !important;
+    border-left: 0px !important;
+  }
+
+  .right_social i {
+    font-size: 16px !important;
+    padding: 4px 20px !important;
+  }
+
+  .social_text {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  /*=============== Footer Social Icons END For Mobile Devices ===============*/
+
+  /*=============== Pagination For Mobile Devices ===============*/
+  .page-item:first-child .page-link,
+  .page-item:last-child .page-link {
+    display: none;
+  }
+
+  .page-link {
+    font-size: 12px;
+  }
+
+  /*=============== Footer START For Mobile Devices ===============*/
+  .list_sides .lists:nth-child(1) {
+    display: none;
+  }
+
+  .lists h6 {
+    margin-bottom: 25px;
+    font-size: 13px;
+  }
+
+  .contact-info {
+    margin-top: 20px;
+  }
+
+  .footer_left {
+    text-align: center;
+  }
+
+  .footer_right {
+    text-align: center !important;
+    margin-top: 5px;
+  }
+}
+
+/*=============== Footer END For Mobile Devices ===============*/
+
+/*=============== Media Query For Mini Mobile Devices START ===============*/
+@media screen and (max-width: 730px) and (min-width: 600px) {
+
+  .banner-carousel .croppedImg {
+    height: 500px;
+  }
+
+  img.img-responsive {
+    height: 210px !important;
+  }
+
+  .hamburger {
+    width: 5%;
+  }
+}
+
+
+/*=============== Media Query For Mini Mobile Devices START ===============*/
+@media screen and (max-width: 340px) {
+
+  /*************** Header ****************/
+  .search_bar {
+    padding-right: 9% !important;
+  }
+
+  .banner-carousel .croppedImg {
+    min-height: 220px;
+  }
+
+  .main_nav_container {
+    height: 65px;
+  }
+
+  .logo_container img {
+    height: 40px;
+  }
+
+  .hamburger {
+    width: 10%;
+    top: 20px;
+  }
+
+  /****************** Best Seller Slider START ******************/
+
+  #customers-testimonials .item {
+    margin-bottom: -10px;
+  }
+
+  img.img-responsive {
+    width: 95% !important;
+    height: 235px !important;
+  }
+
+  .featured-products .owl-nav .owl-next {
+    right: -40px;
+  }
+
+  .featured-products .owl-nav .owl-prev {
+    left: -40px;
+  }
+
+  /****************** Best Seller Slider START ******************/
+
+  /****************** Products Grid ******************/
+  .row.ltg {
+    padding: 0;
+  }
+
+  .row.ltg.list {
+    padding: 0px 12px;
+  }
+
+  .row.ltg .card-block {
+    width: 105px;
+  }
+
+  .row.ltg.list .card-block {
+    width: 100%;
+  }
+
+  .card.card-block img {
+    width: 105px;
+    height: 105px;
+  }
+
+  .product_cart {
+    padding: 2px;
+    padding-top: 5px;
+  }
+
+  .product_cart i {
+    font-size: 8px;
+  }
+
+  /****************** Product Grid End ******************/
+  .offers-img img {
+    height: 110px;
+  }
+
+}
+
+/*=============== Media Query For Mini Mobile Devices END ===============*/

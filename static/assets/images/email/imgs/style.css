@@ -1,0 +1,288 @@
+body {
+    font-family: sans-serif;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 19px;
+}
+
+h4 {
+    font-size: 16px;
+}
+
+div {
+    font-size: 16px;
+}
+
+.navbar {
+    width: 60%;
+    background: #fbfbfd;
+    margin: auto;
+}
+
+.title-logo {
+    width: 300px;
+    margin-left: 0px;
+}
+
+
+.container-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
+}
+
+.container-body {
+    width: 90%;
+    /* margin: 30px 30px; */
+    padding: 20px 0px;
+}
+
+.container-body h1 {
+    color: #404553;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.container-body h3 {
+    color: #404553;
+    margin-bottom: 10px;
+}
+
+.container-body div {
+    color: #acaeb4;
+    margin-bottom: 10px;
+}
+
+/* .border-line {
+    margin: auto;
+    width: 90%;
+    border-bottom: 1px solid grey;
+} */
+
+.container-3 {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: flex-start; */
+    border-top: 1px solid #f3f5f9;
+    border-bottom: 1px solid #f3f5f9;
+    width: 90%;
+}
+
+.cont3_sect {
+    /* margin: 10px 0px; */
+    padding: 10px 0;
+}
+
+.cont3_sect p {
+    color: #757575;
+    font-weight: 500;
+}
+
+#cont3_heading {
+    color: #969696;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+#cont3_img-head {
+    color: #969696;
+    font-weight: 600;
+}
+
+.mastercard-img {
+    width: 80px;
+}
+
+.container-4 {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.product-sect {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+#product-bottom {
+    border-bottom: 1px solid #f3f5f9;
+}
+
+.product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image {
+    width: 100px;
+    padding: 20px;
+}
+
+.product-info {
+    line-height: 25px;
+}
+
+.product-info h4 {
+    font-weight: 600;
+    color: #757575
+}
+
+.product-info p {
+    color: #757575;
+    font-weight: 200;
+}
+
+
+.cash-info {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 0px;
+}
+
+.checkout {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    padding: 5px 0;
+}
+
+.checkout p {
+    color: #757575;
+    font-weight: 200;
+}
+
+#checkout-price {
+    color: #757575 !important;
+    font-weight: 600;
+}
+
+#checkout-total {
+    border-bottom: 1px solid #e7e7e7;
+    border-top: 1px solid #e7e7e7;
+}
+
+.discount {
+    color: #4ce590 !important;
+    font-weight: 600 !important;
+}
+
+.container-5 {
+    width: 80%;
+}
+
+#cont5-para {
+    margin-top: 20px;
+}
+
+.container-5 div {
+    color: #757575;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+
+.container-5 h3 {
+    color: #404553;
+    margin-bottom: 5px;
+}
+
+.container-6 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #fbfbfd;
+    height: 10vh;
+}
+
+.cont6-body {
+    width: 90%;
+    margin: auto;
+    color: #757575;
+}
+
+#help-section {
+    float: left;
+}
+
+#help-link {
+    color: #5d96ff;
+    text-decoration: none;
+}
+
+#copyright {
+    float: right;
+}
+
+.container-body div a {
+    text-decoration: none;
+    color: #5d96ff;
+}
+/* ------------------------------------------------------------/ */
+
+/******************************** For Ipad IOS Devices ********************************/ 
+@media screen and (max-width: 991px) and (min-width:768px) { 
+    .container-body {
+        width: 90%;
+        padding: 10px 0px;
+    }
+
+    .container-body h1 {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .container-body div {
+        margin-bottom: 5px;
+    }
+
+    .cont3_sect {
+        padding: 5px 0;
+    }
+
+    #cont3_heading {
+        margin-bottom: 10px;
+    }
+
+    .product-sect {
+        padding: 0;
+    }
+}
+
+/******************************** For mobile Devices ********************************/
+@media screen and (max-width: 767px)  {
+    h1 {
+        font-size: 27px;
+    }
+    
+    h3 {
+        font-size: 17px;
+    }
+    
+    h4, div {
+        font-size: 14px;
+    }   
+
+    .checkout {
+        width: 50%;
+        padding: 5px 0;
+    }
+
+}

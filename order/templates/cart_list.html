@@ -1,0 +1,459 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_tags %}
+
+{% block title %}
+  Cart Items
+{% endblock title %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'assets/css/index.css' %}" />
+<link rel="stylesheet" href="{% static 'assets/css/cart.css' %}" />
+<link rel="stylesheet" href="{% static 'assets/css/media_query.css' %}" />
+  
+{% endblock css %}
+{% block content %}
+
+    <!--------------******************---------- BreadCumb Start --------------******************---------->
+
+    <div class="bread_cum">
+        <div class="container-fluid">
+            <div class="row bread_class">
+                <div class="col-md-12">
+                    <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                My Cart
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--------------******************---------- BreadCumb End --------------******************---------->
+
+    <!-------------******************---------- My Cart Section START-------------******************---------->
+
+    
+    {% if is_guest %}
+        <div class="container my-cart">
+            <div class="row cart-title">
+                <div class="col-6 item">
+                    <h5>Item</h5>
+                </div>
+                <div class="col-2">
+                    <h5>Price</h5>
+                </div>
+                <div class="col-2">
+                    <h5>Quantity</h5>
+                </div>
+                <div class="col-2">
+                    <h5>Subtotal</h5>
+                </div>
+            </div>
+            <!-------------******************---------- Cart Products Section START-------------******************---------->
+            {% for cart_item in objects.values %}          
+
+            <div class="row cart-product">
+                <div class="remove-icon" cart_id={{cart_item.id}}> 
+                    <img src="{% static 'assets/images/close.png' %}">
+                </div>
+                <div class="col-6 product-detail my-auto">
+                    <img src="{{cart_item.thumbnail_url}}">
+                    <p>{{cart_item.title}}
+                    </p>
+                </div>
+                <div class="col-2 my-auto">
+                    <p>AED {{cart_item.price}} {{user.is_authenticated}}</p>
+                </div>
+
+                <!-------------******************---------- Plus Minus Buttons START -------------******************---------->
+                <div class="col-2 my-auto">
+                    <div class="cart-quantity">
+                        <ul class="
+                            list-unstyled
+                            d-flex
+                            justify-content-center
+                            align-items-center
+                            mb-0
+                            ">
+                            <li class="sub sub-item">
+                                <i class="fas fa-minus"></i>
+                            </li>
+                            <li class="num-li">
+                                <input type="text" id="root"  value="{{cart_item.quantity}}" product_id={{cart_item.id}} />
+                            </li>
+                            <li class="add add-item">
+                                <i class="fas fa-plus"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-------------******************---------- Plus Minus Buttons END -------------******************---------->
+
+                <div class="col-2 my-auto">
+                    <p id='price'>AED {{cart_item.get_price}}  </p>
+                </div>
+            </div>
+
+            {% endfor %}
+
+
+            <!-------------******************---------- Cart Products Section END -------------******************---------->
+
+            <!------*********----- Cart Buttons Section START ------*********----->
+            <div class="row cart-button">
+                <form id="coupon-form" action="">
+                    {% csrf_token %}
+                    <div class="col-md-8 col-12 discount-btn">
+                        <input type="text" name="coupon" required placeholder="Coupon Code">
+                        <button type="submit" class='active'>Apply</button>
+                    </div>
+
+
+                </form>
+                {% for message in messages %}
+                       <div> <center> <p style="color: red">{{message}}</p> </center></div>
+                    {% endfor %}
+                <div class="col-md-4 col-12 add-cart-btn">
+                    <a href="{% url 'shop' %}">
+                        <span>Add more products</span>
+                    </a>
+                </div>
+            </div>
+            <!------*********----- Cart Buttons Section END ------*********----->
+
+            <!------*********----- TOTAL BILL Section START ------*********----->
+            {% if order_flag %}
+
+                <div class="row my-cart-bill">
+                    <div class="col-md-6 hidden-xs"></div>
+                    <div class="col-md-6 col-12 cart-total">
+                        <p class="cart-bill">Cart Totals</p>
+
+                        <div class="bill-detail">
+                            <div class="sub-total">
+                                <p>Subtotal</p>
+                            <p>AED <span id='product_sum'>{{order.total_price_wo_tax}}</span></p>
+                            </div>
+                            <div class="cart-shipping">
+                                <p>Shipping</p>
+                                <p>AED 0.0</p>
+                            </div>
+
+                            <div class="cart-tax">
+                                <p>Tax</p>
+                                <p>AED <span id='tax'>{{order.tax}}</span></p>
+                            </div>
+                            <!-- {% if order.coupon_discount != False %}
+                                <div class="cart-tax">
+                                    <p>Coupon Discount</p>
+                                    <p>AED <span id='coupon-discount'>{{order.coupon_discount}}</span></p>
+                                </div>
+                            {% endif %} -->
+                        </div>
+                        <div class="total-bill">
+                            <p>Total</p>
+                            <p>AED  <span id='total'>{{order.total_price_w_tax}} </span></p>
+                        </div>
+                        <a href="{% url 'payment-detail'  %}">
+                        <div class="total-bill-btn">
+
+                                Proceed to checkout
+
+                        </div>
+                    </a>
+                    </div>
+                    <div class="col-6 hidden-sm hidden-xs">
+                    </div>
+                </div>
+
+            {% endif %}
+
+            <!------*********----- TOTAL BILL Section END ------*********----->
+
+        </div>
+    {% else %}
+
+    {% if objects.count > 0 %}
+
+    <div class="container my-cart">
+        <div class="row cart-title">
+            <div class="col-6 item">
+                <h5>Item</h5>
+            </div>
+            <div class="col-2">
+                <h5>Price</h5>
+            </div>
+            <div class="col-2">
+                <h5>Quantity</h5>
+            </div>
+            <div class="col-2">
+                <h5>Subtotal</h5>
+            </div>
+        </div>
+        <!-------------******************---------- Cart Products Section START-------------******************---------->
+        {% for cart_item in objects %}
+
+        <div class="row cart-product">
+            <div class="remove-icon" cart_id={{cart_item.product.id}}>
+                <img src="{% static 'assets/images/close.png' %}">
+            </div>
+            <div class="col-6 product-detail my-auto">
+                <img src="{{cart_item.product.thumbnail.url}}">
+                <p>{{cart_item.product.title}}
+                    {% if cart_item.sub_attributes.count > 0 %}
+                        <small>(
+                        {% if cart_item.sub_attributes %}
+                            {% for sub_at in cart_item.sub_attributes.all  %}
+
+                                {% if forloop.last %}
+                                    {{sub_at.name}}
+                                {% else %}
+                                {{sub_at.name}} ,
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        )</small>
+                    {% endif %}
+
+                </p>
+            </div>
+            <div class="col-2 my-auto">
+                <p>AED {{cart_item.product.price}}</p>
+            </div>
+
+            <!-------------******************---------- Plus Minus Buttons START -------------******************---------->
+            <div class="col-2 my-auto">
+                <div class="cart-quantity">
+                    <ul class="
+                          list-unstyled
+                          d-flex
+                          justify-content-center
+                          align-items-center
+                          mb-0
+                        ">
+                        <li class="sub sub-item">
+                            <i class="fas fa-minus"></i>
+                        </li>
+                        <li class="num-li">
+                            <input type="text" id="root"  value="{{cart_item.quantity}}" product_id={{cart_item.product.id}} />
+                        </li>
+                        <li class="add add-item">
+                            <i class="fas fa-plus"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-------------******************---------- Plus Minus Buttons END -------------******************---------->
+
+            <div class="col-2 my-auto">
+                <p id='price'>AED {{cart_item.get_price}}  </p>
+            </div>
+        </div>
+
+        {% endfor %}
+
+
+        <!-------------******************---------- Cart Products Section END -------------******************---------->
+
+        <!------*********----- Cart Buttons Section START ------*********----->
+        <div class="row cart-button" id="coupon-form">
+            <form action="{% url 'apply-coupon' %}" method="POST">
+                {% csrf_token %}
+                <div class="col-md-8 col-12 discount-btn">
+                    <input type="text" name="coupon" required placeholder="Coupon Code">
+                    <button type="submit" class='active'>Apply</button>
+                </div>
+
+            {% for message in messages %}
+                       <div><center><p>{{message}}</p></center></div>
+                    {% endfor %}
+            </form>
+
+            <div class="col-md-4 col-12 add-cart-btn">
+                <a href="{% url 'shop' %}">
+                    <span>Add more products</span>
+                </a>
+            </div>
+        </div>
+        <!------*********----- Cart Buttons Section END ------*********----->
+
+        <!------*********----- TOTAL BILL Section START ------*********----->
+        {% if objects.count > 0 %}
+
+            <div class="row my-cart-bill">
+                <div class="col-md-6 hidden-xs"></div>
+                <div class="col-md-6 col-12 cart-total">
+                    <p class="cart-bill">Cart Totals</p>
+
+                    <div class="bill-detail">
+                        <div class="sub-total">
+                            <p>Subtotal</p>
+                           <p>AED <span id='product_sum'>{{order.total_price_wo_tax}}</span></p>
+                        </div>
+                        <div class="cart-shipping">
+                            <p>Shipping</p>
+                            <p>AED 0.0</p>
+                        </div>
+
+                        <div class="cart-tax">
+                            <p>Tax</p>
+                            <p>AED <span id='tax'>{{order.tax}}</span></p>
+                        </div>
+                        {% if order.coupon_discount != False %}
+                            <div class="cart-tax">
+                                <p>Coupon Discount</p>
+                                <p>AED <span id='coupon-discount'>{{order.coupon_discount}}</span></p>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="total-bill">
+                        <p>Total</p>
+                        <p>AED  <span id='total'>{{order.total_price_w_tax}} </span></p>
+                    </div>
+                    <a href="{% url 'payment-detail'  %}">
+                    <div class="total-bill-btn">
+
+                            Proceed to checkout
+
+                    </div>
+                </a>
+                </div>
+                <div class="col-6 hidden-sm hidden-xs">
+                </div>
+            </div>
+
+        {% endif %}
+
+        <!------*********----- TOTAL BILL Section END ------*********----->
+
+    </div>
+
+    {% else %}
+    <p class="text-center" id="cart_empty">No Items Found</p>
+    {% endif %}
+
+    {% endif %}
+
+
+{% endblock content %}
+
+
+{% block script %}
+
+<script>
+    function messageBox(message) {
+      console.log(message)
+      var alertBox = document.getElementById("msg_alert");
+      console.log(alertBox)
+      const messageIcon = document.getElementById("alert-icon");
+      $('.alert').addClass("show");
+      $('.alert').removeClass("hide");
+      $('.alert').addClass("showAlert");
+      setTimeout(function () {
+        $('.alert').removeClass("show");
+        $('.alert').addClass("hide");
+      }, 7000);
+
+
+      alertBox.innerHTML = message;
+
+    //   messageIcon.innerHTML = `<span class="fas fa-check-circle"></span>`
+    }
+
+$('.remove-icon').click(function () {
+       var id = $(this).attr('cart_id')
+       $.ajax({
+        url: '/removeToCart/',
+        data: {
+          'product_id': id
+        },
+        dataType: 'json',
+        success: function (data) {
+            $('#product_sum').html('')
+            $('#product_sum').html(data['product_sum'])
+            $('#tax').html('')
+            $('#tax').html(data['tax'])
+            $('#total').html('')
+            $('#total').html(data['total'])
+            messageBox(data['message'])
+            $('.checkout_items-super').html(data['cartItemCount'])
+            if (data['cartItemCount'] != undefined) {
+                console.log(data['cartItemCount'])
+                if (data['cartItemCount'] == 0) {
+
+                  $('.checkout_items-super').html('')
+                  $('.my-cart-bill').html('')
+                  $('.cart-button').html('')
+                  $('.cart-title').html('')
+                  $('.cart-title').css('border-bottom','0px')
+                  $('.cart-button').html('<p class="text-center">No Items Found</p>')
+
+                }
+                else{
+                    $('.checkout_items-super').html(`<span id="checkout_items" class="checkout_items" >${data['cartItemCount']}</span>`)
+
+                }
+            }
+
+        },
+        error: function (data) {
+
+        }
+      });
+
+       $(this).parent().remove()
+
+})
+// $('#coupon-form').submit(function(event){
+//     event.preventDefault();
+//     // const enteredCode = $(this).find('input[name="coupon"]').val();
+//     const enteredCode = $('input[name="coupon"]').val();
+//     console.log("coupon", enteredCode);
+//     $.ajax({
+//         url: '/coupon/',
+//         data: {
+//           'coupon': enteredCode
+//         },
+//         dataType: 'json',
+//         success: function (data) {
+//             console.log('successs message',data)
+//             messageBox(data['message'])
+//         },
+//         error: function (data) {
+//             console.log('error message',data)
+//             messageBox(data['message'])
+//         }
+//     })
+//     })
+const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+    $('#coupon-form').submit(function (event) {
+        event.preventDefault();
+        // const enteredCode = $(this).find('input[name="coupon"]').val();
+        const enteredCode = $('input[name="coupon"]').val();
+        $.ajax({
+            url: '/coupon/',
+            dataType: 'json',
+            data: {
+                'coupon': enteredCode
+            },
+            headers: {
+                "Content-Type": "application/json",
+                'X-CSRFToken': csrftoken
+            },
+            success: function (data) {
+                messageBox(data['message'])
+            },
+            error: function (err) {
+                messageBox(err['responseJSON']['message'])
+            }
+        })
+    })
+</script>
+  
+{% endblock script %}
